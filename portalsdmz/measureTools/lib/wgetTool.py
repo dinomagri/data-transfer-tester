@@ -1,6 +1,18 @@
 import subprocess, os, re, shutil, time
 from measureTools.models import wgetData
 
+
+def createLocalFolder(pasta_des, tipo, tamanho):
+	print "\nCriando pasta local para recebimento de arquivos ...\n"
+	cmd = "if [ ! -d " + " /" + pasta_des + "/" + tipo + "/" + tamanho + " ] ; then mkdir -p /" + pasta_des + "/" + tipo + "/" + tamanho + " ; fi"
+	subprocess.check_call(cmd, shell=True)
+
+def removeLocalFolder(pasta_des, tipo, tamanho):
+	print "\nRemovendo arquivos e pasta local criadas para o recebimento ...\n"
+	cmd = "rm -rf " + "/" + pasta_des + "/" + tipo + "/" + tamanho
+	subprocess.check_call(cmd, shell=True)
+
+
 def executaWget(cmd):
 	wget = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 	stdout = []
@@ -65,7 +77,7 @@ def wgetTool(ip_remoto, tamanho, numero_teste, pasta_destino, cenario):
 
 	pasta = tamanho
 
-	host_name = user + "@" + ip_remoto
+	"""host_name = user + "@" + ip_remoto
 	ssh_mkdir = "if [ ! -d " + " /" + pasta_destino + "/" + pasta + " ] ; then mkdir -p " + pasta_destino + "/" + pasta + " ; fi"
 
 	try: 
@@ -76,10 +88,13 @@ def wgetTool(ip_remoto, tamanho, numero_teste, pasta_destino, cenario):
 		
 	if not os.path.isdir("/" +pasta_destino + "/" + pasta) :
 		os.makedirs("/" + pasta_destino + "/" + pasta)
+	"""
+
+	createLocalFolder(pasta_destino, tipo, tamanho)
 
 	print "iniciando copia =", numero_teste
 
-	cmd = 'wget' + " ftp://" + ip_remoto + "/" + pasta_temp + "/" +  tamanho + "_file -O" + " /" + pasta_destino + "/" + pasta + "/" + tamanho + "_file_" + str(numero_teste) + " -m"
+	cmd = 'wget' + " ftp://" + ip_remoto + "/" + tamanho + "_file -O" + " /" + pasta_destino + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -m"
 	
 #	cmd = 'wget -O' + " /"+pasta_destino+"/"+pasta+"/"+tamanho+"_file_"+str(numero_teste) + " -m ftp://" + ip_remoto + "/" + tamanho + "_file"
 
@@ -99,6 +114,7 @@ def wgetTool(ip_remoto, tamanho, numero_teste, pasta_destino, cenario):
 
 		print "Removendo os arquivos auxiliares"
 
-		remove_arquivo(ip_remoto + "/")
+		#remove_arquivo(ip_remoto + "/")
+		removeLocalFolder(pasta_destino, tipo, tamanho)
 
 		saveWgetResults(velocidade,numero_teste, cenario, descricao_erro)
