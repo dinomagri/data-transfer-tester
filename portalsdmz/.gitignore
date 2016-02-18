@@ -1,3 +1,4 @@
+172.20.5.38/*
 *.sqlite3
 */migrations/*
 *.pyc
