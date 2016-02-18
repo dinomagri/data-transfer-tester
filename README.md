@@ -86,4 +86,10 @@ Para instalar utilize o pip
 pip install -r requirements.txt
 ```
 
+Se tudo estiver ok, acesse a pasta portalsdmz e rode o comando:
 
+```
+python manage.py migrate
+python manage.py createsuperuser
+python manager.py runserver IP_ADDRESS:8000
+```

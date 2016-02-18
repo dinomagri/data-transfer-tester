@@ -20,7 +20,7 @@ class ScenarioData(models.Model):
 		return self.nome
 
 class ScenarioTimeData(models.Model):
-	data_inicio 	= models.DateTimeField()
+	data_inicio = models.DateTimeField()
 	data_fim 	= models.DateTimeField()
 	num_teste 	= models.SmallIntegerField()
 	cenario		= models.ForeignKey(ScenarioData)

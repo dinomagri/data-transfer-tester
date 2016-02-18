@@ -1,4 +1,5 @@
 from django.views import generic
+
 import datetime
 from django.shortcuts import (
 	render_to_response, RequestContext
@@ -22,6 +23,10 @@ def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, i
 
 	scenario = ScenarioData(nome = nome, data_inicio = data, tamanho = tamanho)
 	scenario.save()
+	print "-------------"
+	print nome
+	print data
+	print tamanho
 	for i in range(1, limite+1):
 		
 		startTime = datetime.datetime.now()
