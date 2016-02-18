@@ -1,0 +1,10 @@
+{% extends "static/templates/base.html" %}
+{% block content %}
+  <h2>SELECT TOOL</h2>
+  <ul>
+    <li><a href="{% url 'scp' %}">SCP</a></li>
+    <li><a href="{% url 'gridftp' %}">GRIDFTP</a></li>
+    <li><a href="{% url 'wget' %}">WGET</a></li>
+    <li><a href="{% url 'iperf' %}">IPERF</a></li>
+  </ul>
+{% endblock %}

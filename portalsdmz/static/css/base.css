@@ -1,0 +1,19 @@
+#scenario_form {
+	margin-left: 5%;
+}
+
+#scenario_form td {
+	padding-top: 3px;
+}
+
+#scenario_form th label{
+	padding-top: 3px;
+	margin: 3px 10px 0px 0px;
+}
+
+.errorlist {
+	color: red;
+	float: right;
+	display: -webkit-box;
+}
+

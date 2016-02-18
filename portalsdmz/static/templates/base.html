@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link href="/static/css/bootstrap.css" rel="stylesheet">
+        <link href="/static/css/base.css" rel="stylesheet">
+        <link href="static/css/lib/tagsinput/jquery.tagsinput.css">
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/highcharts.js"></script>
+    
+        
+        <title>ScienceDMZ</title>
+        {% block load_chart %}
+        {% endblock %}
+    </head>
+
+    <body>
+
+    {% include 'navbar.html' %} 
+
+    
+        {% if user.is_authenticated %}
+            {% block content %}
+            {% endblock %}
+        {% else %}
+            {% include 'home.html' %}
+        {% endif %}
+    
+
+    <hr>
+    <footer ><p align="center">© 2015 LARC | Science DMZ | Versão Alpha v0.2</p></footer>
+    
+    </body>
+</html>

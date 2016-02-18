@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+  <!-- Table -->
+	  <table class = "table table-hover table-bordered">
+	  		<thead>
+			<tr class="info">
+				<th align="center">#</th>
+				<th align="center">Nome</th>
+				<th align="center">Tamanho</th>
+				<th align="center">Data Inicio</th>
+				<th align="center">Data Fim</th>
+				<th align="center">Opções</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for data in scenario_list %}
+			<tr>
+				<td align="center">{{ data.id }}</td>
+				<td align="center">{{ data.nome }}</td>
+				<td align="center">{{ data.tamanho }}</td>
+				<td align="center">{{ data.data_inicio|date:"d-m-Y H:i" }}</td>
+				<td align="center">{{ data.data_fim|date:"d-m-Y H:i" }}</td>
+				<td align="center"><a href={{data.id}}>Detalhes</a></td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	
+
+
+{% endblock %}
+
+

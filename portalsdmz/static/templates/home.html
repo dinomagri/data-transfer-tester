@@ -1,0 +1,31 @@
+{% if messages %}
+
+<div class="alert alert-danger" role="alert">
+  <span class="sr-only">Error:</span>
+      <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endif %}
+
+<div class="jumbotron">
+
+<h1>Data Transfer Tester</h1>
+
+    <p> O programa Science DMZ da RNP visa estudar e disseminar melhores práticas de infraestrutura de redes de campus voltadas às aplicações científicas. Dada a crescente escala em que volumes cada vez maiores de dados precisam ser processados e analisados por aplicações científicas as redes de campus das universidades necessitam se adequar a esta nova demanda de transferência de dados entre laboratórios e instituições. </p>
+    <p>O Data Transfer Tester (DTT) foi desenvolvido para facilitar os testes de validação da máquina de transferência de dados(DTN). As ferramentas disponíveis são: </p>
+
+<ul>
+    <li>scp</li>
+    <li>gridftp</li>
+    <li>iperf</li>
+    <li>udr</li>
+    <li>axel (download)</li>
+    <li>aria2c (download)</li>
+    <li>wget (download)</li>
+</ul>
+<p><a class="btn btn-primary btn-lg" href="https://wiki.rnp.br/display/sciencedmz/Science+DMZ+Home" role="button">Wiki Science DMZ</a></p>
+</div>

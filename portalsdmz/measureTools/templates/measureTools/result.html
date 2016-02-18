@@ -1,0 +1,23 @@
+{% extends "static/templates/base.html" %}
+{% block load_chart %}
+	{% load chartit %}
+{% endblock %}
+
+{% block content %}
+	<h2>{{ context_data }} entries</h2>
+	<table style="width:100%">
+		<tr>
+			<th>Date</th>
+			<th>Size</th>
+			<th>Speed</th>
+		</tr>
+		{% for data in result_list %}
+			<tr>
+				<th>{{ data.data }}</th>
+				<th>{{ data.tamanho }}</th>
+				<th>{{ data.velocidade }}</th>
+			</tr>
+		{% endfor %}
+	</table>
+	<div id='container'> {{ chart|load_charts:"container"}} Chart </div>
+{% endblock %}

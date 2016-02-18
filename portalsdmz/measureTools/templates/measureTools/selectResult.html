@@ -1,0 +1,11 @@
+{% extends "static/templates/base.html" %}
+{% block content %}
+  <h2>SELECT RESULT</h2>
+  <ul>
+    <li><a href="{% url 'scp_result' %}">SCP</a></li>
+    <li><a href="{% url 'gridftp_result' %}">GRIDFTP</a></li>
+    <li><a href="{% url 'wget_result' %}">WGET</a></li>
+    <li><a href="{% url 'iperf_result' %}">IPERF</a></li>
+    <li><a href="{% url 'all_results' %}">TODOS</a></li>
+  </ul>
+{% endblock %}
