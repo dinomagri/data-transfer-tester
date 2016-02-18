@@ -1,7 +1,8 @@
 Django==1.8.4
 django-chartit==0.1
+django-chartit2==0.2.2
 gevent==1.0.1
 greenlet==0.4.6
 pysqlite==2.6.3
-simplejson==3.6.5
+simplejson==3.8.2
 wsgiref==0.1.2

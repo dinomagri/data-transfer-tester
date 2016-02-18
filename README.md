@@ -88,17 +88,21 @@ pip install -r requirements.txt
 
 Se tudo estiver ok, acesse a pasta portalsdmz e rode o comando:
 
+
 ```
+rm db.sqlite3 
 python manage.py migrate
-python manager.py runserver IP_ADDRESS:8000
+python manage.py runserver 172.20.5.170:8000
 ```
 
 Agora vamos criar um usuário admin para a seção de Administração do portal (/admin):
 
-```python manage.py createsuperuser```
+```
+python manage.py createsuperuser
+python manage.py runserver 172.20.5.170:8000
+```
 
 Escolha o login e senha.
-
 
 Acesse no navegador: http://IP_ADDRESS:8000
 
