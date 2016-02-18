@@ -23,8 +23,8 @@ def converteBandwidthParaMb(bandwidth):
 		return 0
 
 def runIperf(ip_remoto, fluxo, tamanho, numero_teste):
-	print("Iniciando teste "+ str(numero_teste) +" do iperf3")
-	cmd = 'iperf3 -c ' + ip_remoto + ' -P ' + str(fluxo) + ' -i1 -O 2 -n ' + tamanho
+	print("Iniciando teste "+ str(numero_teste) +" do iperf3 para" + tamanho)
+	cmd = 'iperf3 -c ' + ip_remoto + ' -P ' + str(fluxo) + ' -i1 -O 5 -n ' + tamanho
 	return subprocess.check_output(cmd, shell=True)
 
 def filterIperfResult(iperf_result, fluxo):
@@ -32,7 +32,7 @@ def filterIperfResult(iperf_result, fluxo):
 	regex_letter 	= '[A-Za-z]'
 	regex_digit 	= '[\d.]*'
 	lista_bw = re.findall(regex_bw,iperf_result)
-	bandwidth = lista_bw[fluxo]
+	bandwidth = lista_bw[-1]
 	bandwidth_size	= re.findall(regex_letter, bandwidth)[0]
 	bandwidth = re.findall(regex_digit,bandwidth)[0]
 	bandwidth = "{0:0.1f}".format(float(bandwidth)*converteBandwidthParaMb(bandwidth_size))
