@@ -13,7 +13,7 @@ class ScenarioData(models.Model):
 
 	nome 		= models.CharField(max_length = 120)
 	data_inicio	= models.DateTimeField()
-	data_fim	= models.DateTimeField(blank = True)
+	data_fim	= models.DateTimeField(blank = True, null=True)
 	tamanho 	= models.CharField(max_length = 5, choices = SIZE_CHOICES)
 
 	def __unicode__(self):
