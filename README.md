@@ -64,6 +64,8 @@ virtualenv -p /usr/local/bin/python2.7 venv
 source venv/bin/activate
 ``` 
 
+Rode o comando ```python``` e verifique se a versão é a 2.7.
+
 Assim toda a instalação que realizar utilizando o pip, afetará apenas esse ambiente virtual. Para desativar, utilize na pasta raiz o comando ```deactivate```.
 
 As dependências para a instalação são:
