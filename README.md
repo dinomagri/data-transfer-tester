@@ -12,6 +12,8 @@ O **Data Transfer Tester** (DTT) foi desenvolvido para facilitar os testes de va
 * aria2c
 * wget
 
+Todas as ferramentas realizam o Download dos dados. Ou seja, onde o DTT estiver rodando, os dados serão baixados para essa máquina.
+
 Este software está em versão Alpha, utilize por sua conta e risco.
 
 ## Instalação
