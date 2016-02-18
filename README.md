@@ -45,14 +45,14 @@ Digite o terminal:
 Se tudo estiver certo, agora podemos prosseguir com a instalação do virtualenv para inicial o Deploy da Aplicação.
 
 
-[ ] Migrar para o Download do ZIP
+[] Migrar para o Download do ZIP
 Primeiro vamos realizar o Download do clonar o repositório do github:
 ```
 cd ~ 
 git clone git@github.com:dinomagri/data-transfer-tester.git
 cd data-transfer-tester/
 ```
-Agora vamos instalar o virtualenv para termos um ambiente isolado. Veja mais em [ ] Adicionar link.
+Agora vamos instalar o virtualenv para termos um ambiente isolado. Veja mais em [] Adicionar link.
 
 ```sudo yum install python-virtualenv```
 
