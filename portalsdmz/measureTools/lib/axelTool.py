@@ -3,6 +3,17 @@
 import time, subprocess, re, os
 from measureTools.models import axelData
 
+def createLocalFolder(pasta_des, tipo, tamanho):
+	print "\nCriando pasta local para recebimento de arquivos ...\n"
+	cmd = "if [ ! -d " + " /" + pasta_des + "/" + tipo + "/" + tamanho + " ] ; then mkdir -p /" + pasta_des + "/" + tipo + "/" + tamanho + " ; fi"
+	subprocess.check_call(cmd, shell=True)
+
+def removeLocalFolder(pasta_des, tipo, tamanho):
+	print "\nRemovendo arquivos e pasta local criadas para o recebimento ...\n"
+	cmd = "rm -rf " + "/" + pasta_des + "/" + tipo + "/" + tamanho
+	subprocess.check_call(cmd, shell=True)
+
+"""
 def criar_pasta_local(pasta_des, pasta):
 	print "Criando pasta local para receber o arquivo..."
 	cmd = "if [ ! -d " + "/" + pasta_des + "/" + pasta + \
@@ -13,6 +24,8 @@ def remover_pasta_local(pasta_des, tamanho):
 	print "Deletando pasta local"
 	cmd = "rm -rf /" + pasta_des + "/" + tamanho
 	subprocess.check_call(cmd, shell=True)
+
+"""
 
 def executa_axel(comando):
 	resultado = subprocess.check_output(comando, shell=True, stderr=subprocess.STDOUT)
@@ -45,7 +58,6 @@ def saveAxelResult(velocidade, numero_teste,cenario, erro):
 def axelTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenario):
 	# esta fazendo o download em vez de upload
 	
-	pasta_temp = "area-teste"
 	tipo 	 = 'axel'
 	usuario  = "sdmz"
 	data     = time.strftime('%d/%m %H:%M:%S')
@@ -54,19 +66,12 @@ def axelTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cena
 	work_dir = os.getcwd()
 	pasta = tamanho + "/" + str(fluxo)
 
-	# programa
-	print ""
-	print "---------------"
-	print "---- Axel -----"
-	print "---------------"
-	print ""
-
 	try:
-		os.chdir(os.path.abspath(os.sep))
-		criar_pasta_local(pasta_temp, pasta)
+		#os.chdir(os.path.abspath(os.sep))
+		createLocalFolder(pasta_des, tipo, tamanho)
 		print 'pasta criada'	
 
-		comando = 'axel ftp://' + ip_remoto + '/' + pasta_temp + "/" + tamanho + '_file -o /' + pasta_des + "/" + pasta + "/" + tamanho + "_file_" + str(numero_teste) + " -n " + str(fluxo)
+		comando = 'axel ftp://' + ip_remoto + '/' + tamanho + '_file -o /' + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -n " + str(fluxo)
 
 		print comando
 		#comando = 'axel -o /' + pasta_des + '/' + pasta + '/' + tamanho + \
@@ -74,7 +79,7 @@ def axelTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cena
 		#	ip_remoto + '/' + tamanho + '_file'
 		
 		resultado_axel = executa_axel(comando)
-		remover_pasta_local(pasta_des, tamanho)
+		removeLocalFolder(pasta_des, tipo, tamanho)
 		os.chdir(work_dir)
 		saveAxelResult(resultado_axel, numero_teste, cenario, erro)
 
