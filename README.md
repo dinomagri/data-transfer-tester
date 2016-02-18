@@ -90,6 +90,16 @@ Se tudo estiver ok, acesse a pasta portalsdmz e rode o comando:
 
 ```
 python manage.py migrate
-python manage.py createsuperuser
 python manager.py runserver IP_ADDRESS:8000
 ```
+
+Agora vamos criar um usuário admin para a seção de Administração do portal (/admin):
+
+```python manage.py createsuperuser```
+
+Escolha o login e senha.
+
+
+Acesse no navegador: http://IP_ADDRESS:8000
+
+
