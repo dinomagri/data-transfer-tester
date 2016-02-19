@@ -1,5 +1,4 @@
 Django==1.8.4
-django-chartit==0.1
 django-chartit2==0.2.2
 gevent==1.0.1
 greenlet==0.4.6
