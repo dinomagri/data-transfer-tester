@@ -63,7 +63,8 @@ Para facilitar o desenvolvimento do DTT, foi criado uma máquina virtua do CentO
 
 	* Usuários sdmz e root
 	* Senha para os dois usuários: sdmz123
-	* Os arquivos 100G_file, 10G_file e 1G_file já estão criados com o mesmo tamanho de 1G para salvar espaço.
+	
+Os arquivos 100G_file, 10G_file e 1G_file já estão criados com o mesmo tamanho de 1G para salvar espaço.
 
 Para baixar a VM acesse: https://filesender.rnp.br/?vid=3863a3a0-1b0f-b4c9-727b-0000440c45b4 (Disponível até 10/3/16).
 
