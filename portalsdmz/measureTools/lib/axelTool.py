@@ -33,8 +33,10 @@ def executa_axel(comando):
 	return velocidade
 
 def parse_resultado(resultado):
+	print "***************************\n\n", resultado
 	regexVelocidade = "[\d,]+ [\w]+/s"
 	lista_velocidade = re.findall(regexVelocidade, resultado)
+	print "-------------------------", lista_velocidade 
 	velocidade = conversor_byte_bits(lista_velocidade[0])
 	return velocidade
 
@@ -79,6 +81,7 @@ def axelTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cena
 		#	ip_remoto + '/' + tamanho + '_file'
 		
 		resultado_axel = executa_axel(comando)
+		#print ">>>>>>>>>>>>>>>", resultado_axel
 		removeLocalFolder(pasta_des, tipo, tamanho)
 		os.chdir(work_dir)
 		saveAxelResult(resultado_axel, numero_teste, cenario, erro)
