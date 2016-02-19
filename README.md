@@ -63,6 +63,9 @@ Para facilitar o desenvolvimento do DTT, foi criado uma máquina virtua do CentO
 
 	* Usuários sdmz e root
 	* Senha para os dois usuários: sdmz123
+	* Os arquivos 100G_file, 10G_file e 1G_file já estão criados com o mesmo tamanho de 1G para salvar espaço.
+
+Para baixar a VM acesse: https://filesender.rnp.br/?vid=3863a3a0-1b0f-b4c9-727b-0000440c45b4 (Disponível até 10/3/16).
 
 Caso decida por utilizar a VM, continue do tópico [Copiando o código fonte do DTT](https://github.com/dinomagri/data-transfer-tester#copiando-o-código-fonte-do-dtt)
 
@@ -151,6 +154,7 @@ pip install -r requirements.txt
 Se tudo estiver ok, acesse a pasta portalsdmz e rode o comando:
 
 ```bash
+cd portalsdmz
 rm db.sqlite3 
 python manage.py migrate
 python manage.py runserver 172.20.5.170:8000
@@ -177,6 +181,8 @@ Acesse o navegador, digite: http://172.20.5.170:8000 e tente realizar o login.
 
 ### Testando
 
+Caso os arquivos de teste estejam criados, utilize o Portal DTT para criar um novo cenário de teste e iniciar as transferências.
+
 O DTT utiliza 3 tamanhos de arquivos diferentes para realizar os teste (1G, 10G e 100G) e os mesmos devem ser criados no diretório /dados. O comando para criar esses arquivos são:
 
 * Para criar o arquivo de 1G_file - ```dd if=/dev/zero of=/dados/1G_file bs=4k count=250000```
@@ -191,11 +197,11 @@ Para testar manualmente as ferramentas para verificar se tudo está funcionando 
 	* ```scp sdmz@172.20.5.38:/dados/1G_file /dados/area-teste/1G_file```
 
 * gridFTP
-	* No host remoto: ```globus-gridftp-server -aa```
+	* No host remoto: ```globus-gridftp-server -aa &```
 	* Na máquina DTT: ```globus-url-copy -vb -p 1 ftp://172.20.5.38:2811/dados/1G_file file:///dados/area-teste/1G_file```
 
 * iperf3
-	* No host remoto: ```iperf3 -s```
+	* No host remoto: ```iperf3 -s &```
 	* Na máquina DTT: ```iperf3 -c 172.20.5.38 -P 1 -i1 -O 5 -n 1G```
 
 * udr
@@ -207,7 +213,7 @@ Para as ferramentas wget, axel e aria2c é necessário ter um servidor FTP rodan
 	* ```wget ftp://172.20.5.38/1G_file -O /dados/area-teste/1G_file```
 
 * axel
-	* ```axel ftp://172.20.5.38/100G_file -o /dados/area-teste/100G_file -n 1```
+	* ```axel ftp://172.20.5.38/1G_file -o /dados/area-teste/1G_file -n 1```
 
 * aria2c
 	* ```aria2c -x1 ftp://172.20.5.38/1G_file -d /dados/area-teste/1G_file```
