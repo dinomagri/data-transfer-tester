@@ -61,10 +61,10 @@ O DTT foi testado em ambiente CentOS 6.7 com as respectivas versões das ferrame
 
 Para facilitar o desenvolvimento do DTT, foi criado uma máquina virtua do CentOS com todas as ferramentas instaladas e funcionando. Já vem com a versão 2.7.11 do Python.
 
-Usuários sdmz e root
-Senha para os dois usuários: sdmz123
+	* Usuários sdmz e root
+	* Senha para os dois usuários: sdmz123
 
-Caso decida por utilizar a VM, continue do tópico **Copiando o código fonte do DTT**.
+Caso decida por utilizar a VM, continue do tópico [Copiando o código fonte do DTT](https://github.com/dinomagri/data-transfer-tester#copiando-o-código-fonte-do-dtt)
 
 ## Instalação do DTT
 
