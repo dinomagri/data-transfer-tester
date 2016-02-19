@@ -15,6 +15,8 @@ O **Data Transfer Tester** (DTT) foi desenvolvido para facilitar os testes de va
 Todas as ferramentas realizam o Download dos dados. Ou seja, onde o DTT estiver rodando, os dados serão baixados para essa máquina.
 
 <font color="red">Este software está em versão Alpha. NÃO utilize em ambientes de produção!!!</font>
+<p style='color:red'>This is some red text.</p>
+These are <b style='color:red'>red words</b>.
 
 ## Licença
 
