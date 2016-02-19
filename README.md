@@ -16,6 +16,18 @@ Todas as ferramentas realizam o Download dos dados. Ou seja, onde o DTT estiver 
 
 > Este software está em versão Alpha, não utilize em ambientes de produção.
 
+## Licença
+
+Veja arquivo LICENSE
+
+## Autores
+
+- Dino Magri
+- Fabio Chu
+- Felipe Waku
+
+
+
 ## Instalação e Configuração do CentOS 6.7 e das Ferramentas de Transferência
 
 Para rodar é necessário que o host remoto e o DTT tenham essas ferramentas instaladas. Abaixo segue os tutoriais para instalação e configuração, tanto do sistema operacional CentOS 6.7 como também do DTN:
@@ -177,8 +189,3 @@ Acesse: http://172.20.5.170:8000, realize o login, crie um ***Novo cenário*** e
 Para acessar a área administrativa: http://172.20.5.170:8000
 
 
-## Autores
-
-- Dino Magri
-- Fabio Chu
-- Felipe Waku
