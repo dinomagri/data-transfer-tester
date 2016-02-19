@@ -2,15 +2,16 @@
 {% block content %}
 
 	<div class="jumbotron">
-	<h1>Helpers</h1>
+	<h1>Ajuda</h1>
 
-	<p>Certifique-se que a comunicação ssh sem senha exista entre o servidor e a máquina desejada</p>
-	<p>Criar chaves: ssh-keygen</p>
-	<p>Compartilhar chaves: ssh-copy-id user@host</p>
-
+	<p>- Certifique-se que a comunicação ssh sem senha exista entre os pares envolvidos (máquina portal e host remoto).</p>
+	<p>- Para criar as chaves para o usuário sdmz, utilize: ssh-keygen</p>
+	<p>- Para compartilhar as chaves entre as máquinas: ssh-copy-id -i ~/.ssh/id_rsa.pub user@host2.com.br</p>
+	<p>- Repita o processo para enviar a chave do host2 para o host1.</p>
 	<br>
 	
-	<p>Certifique-se que o servidor seja executado como root ou o usuario tenha permissões de criaçãod e pasta</p>
+	<p>- Certifique-se que exista o usuário sdmz em ambas as máquinas.</p>
+	
 	</div>
 
 
