@@ -3,16 +3,15 @@
 import time, subprocess, re
 from measureTools.models import udrData
 
-def criar_pasta_remota(pasta_des, pasta, usuario, ip_remoto):
-	print "Criando pasta remota para receber o arquivo..."
-	cmd = "if [ ! -d " + pasta_des + "/" + pasta + \
-		" ] ; then mkdir -p " + pasta_des + "/" + pasta + " ; fi"
-	subprocess.check_call(['ssh',usuario + "@" + ip_remoto,cmd])
+def createLocalFolder(pasta_des, tipo, tamanho):
+	print "\nCriando pasta local para recebimento de arquivos ...\n"
+	cmd = "if [ ! -d " + " /" + pasta_des + "/" + tipo + "/" + tamanho + " ] ; then mkdir -p /" + pasta_des + "/" + tipo + "/" + tamanho + " ; fi"
+	subprocess.check_call(cmd, shell=True)
 
-def remover_pasta_remota(pasta_des, tamanho, usuario, ip_remoto):
-	print "Deletando pasta remota"
-	cmd = "rm -rf " + pasta_des + "/" + tamanho
-	subprocess.check_call(['ssh',usuario + "@" + ip_remoto,cmd])
+def removeLocalFolder(pasta_des, tipo, tamanho):
+	print "\nRemovendo arquivos e pasta local criadas para o recebimento ...\n"
+	cmd = "rm -rf " + "/" + pasta_des + "/" + tipo + "/" + tamanho
+	subprocess.check_call(cmd, shell=True)
 
 def executa_udr(comando):
 	print "Executando o UDR"
@@ -60,21 +59,12 @@ def udrTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenar
 	print ""
 
 	try:
-		criar_pasta_remota(pasta_des, pasta, usuario, ip_remoto)
+		createLocalFolder(pasta_des, tipo, tamanho)
 
-		#comando = 'udr rsync -av -stats --progress '+ usuario + '@' + ip_remoto + ":" + pasta_des + '/' + pasta + '/' + tamanho + '_file' + ' /' + pasta_ori + '/' + tamanho + '_file_' + str(numero_teste)
-
-
-		#print comando
-
-		comando = 'udr rsync -av -stats --progress ' + \
-			"/" + pasta_ori + '/' + tamanho + '_file ' + usuario + '@' + ip_remoto + ':' + pasta_des + \
-			 '/' + pasta + '/' + tamanho + '_file_' + str(numero_teste)
+		comando = 'udr rsync -av -stats --progress ' + usuario + '@' + ip_remoto + ":/" + pasta_ori + '/' + tamanho + '_file ' + '/' + pasta_des + '/' + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste)
 		
-		print comando
-
 		resultado_udr = executa_udr(comando);
-		remover_pasta_remota(pasta_des, tamanho, usuario, ip_remoto)
+		removeLocalFolder(pasta_des, tipo, tamanho)
 		saveUdrResult(resultado_udr, numero_teste, cenario, erro)
 
 	except Exception as e:
