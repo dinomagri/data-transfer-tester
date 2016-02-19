@@ -184,11 +184,11 @@ Acesse o navegador, digite: http://172.20.5.170:8000 e tente realizar o login.
 
 Caso os arquivos de teste estejam criados, utilize o Portal DTT para criar um novo cenário de teste e iniciar as transferências.
 
-O DTT utiliza 3 tamanhos de arquivos diferentes para realizar os teste (1G, 10G e 100G) e os mesmos devem ser criados no diretório /dados. O comando para criar esses arquivos são:
+O DTT utiliza 3 tamanhos de arquivos diferentes para realizar os teste (1G, 10G e 100G) e os mesmos devem ser criados no diretório /dados/area-teste. O comando para criar esses arquivos são:
 
-* Para criar o arquivo de 1G_file - ```dd if=/dev/zero of=/dados/1G_file bs=4k count=250000```
-* Para criar o arquivo de 10G_file - ```dd if=/dev/zero of=/dados/10G_file bs=4k count=2500000```
-* Para criar o arquivo de 100G_file - ```dd if=/dev/zero of=/dados/100G_file bs=4k count=25000000```
+* Para criar o arquivo de 1G_file - ```dd if=/dev/zero of=/dados/area-teste/1G_file bs=4k count=250000```
+* Para criar o arquivo de 10G_file - ```dd if=/dev/zero of=/dados/area-teste/10G_file bs=4k count=2500000```
+* Para criar o arquivo de 100G_file - ```dd if=/dev/zero of=/dados/area-teste/100G_file bs=4k count=25000000```
 
 Para testar manualmente as ferramentas para verificar se tudo está funcionando corretamente:
 

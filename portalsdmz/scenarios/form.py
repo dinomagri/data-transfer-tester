@@ -15,7 +15,7 @@ class ScenarioForm(forms.Form):
 	ip_remoto	= forms.CharField(max_length = 120, initial = '172.20.5.38', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
 	limite		= forms.IntegerField(initial = 1, min_value=1, max_value=10, widget=forms.NumberInput(attrs={'class': 'col-sm-5'}))
 	destino		= forms.CharField(max_length = 120, initial = 'dados/area-teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
-	origem		= forms.CharField(max_length = 120, initial = 'dados', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
+	origem		= forms.CharField(max_length = 120, initial = 'dados/area-teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
 	scp 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))	
 	wget		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 	udr 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
