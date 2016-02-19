@@ -33,7 +33,7 @@ def executa_axel(comando):
 	return velocidade
 
 def parse_resultado(resultado):
-	regexVelocidade = "[\d.]+ [\w]+/s"
+	regexVelocidade = "[\d.,]+ [\w]+/s"
 	lista_velocidade = re.findall(regexVelocidade, resultado)
 	velocidade = conversor_byte_bits(lista_velocidade[0])
 	return velocidade
