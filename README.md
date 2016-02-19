@@ -18,7 +18,7 @@ Todas as ferramentas realizam o Download dos dados. Ou seja, onde o DTT estiver 
 
 ## Instalação e Configuração do CentOS 6.7 e das Ferramentas de Transferência
 
-Para rodar é necessário que o host remoto tenha essas ferramentas instaladas. O tutorial de instalação para o CentOS 6.7 está em:
+Para rodar é necessário que o host remoto e o DTT tenham essas ferramentas instaladas. Abaixo segue os tutoriais para instalação e configuração, tanto do sistema operacional CentOS 6.7 como também do DTN:
 
 * Para a instalação do CentOS 6.7 - https://wiki.rnp.br/pages/viewpage.action?pageId=89563937
 * Para a instalação e configuração básica do DTN - https://wiki.rnp.br/pages/viewpage.action?pageId=89564070
