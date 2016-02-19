@@ -105,12 +105,12 @@ make && sudo make altinstall
 
 ### Copiando o código fonte do DTT
 
-Primeiro vamos realizar o download do código fonte, clonando o repositório do github:
+Primeiro vamos realizar o download do código fonte:
 
 ```
 cd ~ 
-git clone git@github.com:dinomagri/data-transfer-tester.git
-cd data-transfer-tester/
+wget https://github.com/dinomagri/data-transfer-tester/archive/master.zip
+cd data-transfer-tester-master/
 ```
 
 * Se tudo estiver certo, agora podemos prosseguir com a instalação do virtualenv onde o DTT irá rodar isoladamente. Mais sobre virtualenv em https://virtualenv.readthedocs.org/en/latest/
