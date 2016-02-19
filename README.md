@@ -208,4 +208,4 @@ Acesse: http://172.20.5.170:8000, realize o login, crie um ***Novo cenário*** e
 
 Para acessar a área administrativa: http://172.20.5.170:8000
 
-
+> Lembre-se: O IP acima deve ser trocado para o IP correspondente da máquina onde o DTT está instalado.
