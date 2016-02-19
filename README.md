@@ -59,6 +59,13 @@ O DTT foi testado em ambiente CentOS 6.7 com as respectivas versões das ferrame
 
 > Com um pouco de esforço, acredito que seja possível rodar o DTT em outras distribuições Linux.
 
+Para facilitar o desenvolvimento do DTT, foi criado uma máquina virtua do CentOS com todas as ferramentas instaladas e funcionando. Já vem com a versão 2.7.11 do Python.
+
+Usuários sdmz e root
+Senha para os dois usuários: sdmz123
+
+Caso decida por utilizar a VM, continue do tópico **Copiando o código fonte do DTT**.
+
 ## Instalação do DTT
 
 Antes de rodar o DTT, é necessário instalar a versão 2.7 do Python, pois é necessário manter a versão 2.6 que é utilizada pelo CentOs 6.7. Portanto é importante que ambas as versões (2.6 e 2.7) existam, uma vez que o sistema operacional pode quebrar.
@@ -72,7 +79,7 @@ Para instalar a versão 2.7.11 no CentOS 6.7, devemos realizar os seguintes pass
 * Instalando as dependências:
 
 ```bash
-sudo yum groupinstall "Development tools"
+sudo yum groupinstall "Development tools" -y
 sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel -y
 ```
 
@@ -92,7 +99,7 @@ make && sudo make altinstall
 	* Para verificar se a versão é a 2.7.11: ```python2.7``` 
 
 
-### Copiando o código fonte
+### Copiando o código fonte do DTT
 
 Primeiro vamos realizar o download do código fonte, clonando o repositório do github:
 
