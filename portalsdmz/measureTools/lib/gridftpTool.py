@@ -14,6 +14,16 @@ def removeRemoteFolder(pasta_des, tamanho, usuario, ip_remoto):
 	cmd = "rm -rf /" + pasta_des + "/" + tamanho
 	subprocess.check_call(['ssh',usuario + "@" + ip_remoto,cmd])
 
+def createLocalFolder(pasta_des, tipo, tamanho):
+	print "\nCriando pasta local para recebimento de arquivos ...\n"
+	cmd = "if [ ! -d " + " /" + pasta_des + "/" + tipo + "/" + tamanho + " ] ; then mkdir -p /" + pasta_des + "/" + tipo + "/" + tamanho + " ; fi"
+	subprocess.check_call(cmd, shell=True)
+
+def removeLocalFolder(pasta_des, tipo, tamanho):
+	print "\nRemovendo arquivos e pasta local criadas para o recebimento ...\n"
+	cmd = "rm -rf " + "/" + pasta_des + "/" + tipo + "/" + tamanho
+	subprocess.check_call(cmd, shell=True)
+
 def executeGridftp(usuario,ip_remoto,cmd):
 	print "\nExecutando o gridftp\n"
 	retorno = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
@@ -54,14 +64,15 @@ def gridftpTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, c
 	error_description = ''
 
 	try:
-		createRemoteFolder(pasta_des, pasta, usuario, ip_remoto)
-		cmd_gridftp = "time -p globus-url-copy -vb -p " + str(fluxo) + " ftp://" + ip_remoto + ":" + str(porta) + "/dados/" + pasta_temp  + "/" + tamanho + "_file file:///" + pasta_des + "/" + tamanho + "_file_" + str(numero_teste)
+		createLocalFolder(pasta_des, tipo, tamanho)
+		cmd_gridftp = "time -p globus-url-copy -vb -p " + str(fluxo) + " ftp://" + ip_remoto + ":" + str(porta)  + "/" + pasta_ori  + "/" + tamanho + "_file file:///" \
+			+ pasta_des + "/" + tipo + "/" + tamanho + "_file_" + str(numero_teste)
 		
 		print cmd_gridftp
 
 		retorno_gridftp = executeGridftp(usuario, ip_remoto, cmd_gridftp)
 		resultado_gridftp = filterGridftp(retorno_gridftp)
-		removeRemoteFolder(pasta_des, tamanho, usuario, ip_remoto)
+		removeLocalFolder(pasta_des, tipo, tamanho)
 		saveGridftpResult(resultado_gridftp, cenario, error_description, numero_teste)
 
 	except Exception as e:
