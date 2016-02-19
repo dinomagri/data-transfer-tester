@@ -195,18 +195,18 @@ Para testar manualmente as ferramentas para verificar se tudo está funcionando 
 > O IP abaixo, deve ser trocado pelo IP do host remoto.
 
 * scp 
-	* ```scp sdmz@172.20.5.38:/dados/1G_file /dados/area-teste/1G_file```
+	* ```scp sdmz@172.20.5.38:/dados/area-teste/1G_file /dados/area-teste/1G_file```
 
 * gridFTP
 	* No host remoto: ```globus-gridftp-server -aa &```
-	* Na máquina DTT: ```globus-url-copy -vb -p 1 ftp://172.20.5.38:2811/dados/1G_file file:///dados/area-teste/1G_file```
+	* Na máquina DTT: ```globus-url-copy -vb -p 1 ftp://172.20.5.38:2811/dados/area-teste/1G_file file:///dados/area-teste/1G_file```
 
 * iperf3
 	* No host remoto: ```iperf3 -s &```
 	* Na máquina DTT: ```iperf3 -c 172.20.5.38 -P 1 -i1 -O 5 -n 1G```
 
 * udr
-	* ```udr rsync -av -stats --progress sdmz@172.20.5.38:/dados/1G_file /dados/area-teste/1G_file```
+	* ```udr rsync -av -stats --progress sdmz@172.20.5.38:/dados/area-teste/1G_file /dados/area-teste/1G_file```
 
 Para as ferramentas wget, axel e aria2c é necessário ter um servidor FTP rodando no host remoto - https://wiki.rnp.br/pages/viewpage.action?pageId=89564070#InstalaçãoeconfiguraçãobásicadoDTN-ServidorFTP
 
