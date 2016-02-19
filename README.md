@@ -37,6 +37,7 @@ Veja arquivo LICENSE
 Para rodar é necessário que o host remoto e o DTT tenham essas ferramentas instaladas. Abaixo segue os tutoriais para instalação e configuração, tanto do sistema operacional CentOS 6.7 como também do DTN:
 
 * Para a instalação do CentOS 6.7 - https://wiki.rnp.br/pages/viewpage.action?pageId=89563937
+	* Crie uma partição /dados com o sistema de arquivos XFS para facilitar os testes!!!
 * Para a instalação e configuração básica do DTN - https://wiki.rnp.br/pages/viewpage.action?pageId=89564070
 * Para a instalação das ferramentas:
 	* Instalação Globus Toolkit 5.2 - https://wiki.rnp.br/pages/viewpage.action?pageId=89564077
