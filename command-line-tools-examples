@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+
+
+
+
+scp sdmz@dtn.sdmz.rnp.br:/dados/area-teste/1G_file /dados/area-teste/1G_file
+
+
+globus-gridftp-server -aa &
+
+globus-url-copy -vb -p 1 ftp://dtn.sdmz.rnp.br:2811/dados/area-teste/1G_file file:///dados/area-teste/1G_file
+
+
+iperf3 -s &
+iperf3 -c dtn.sdmz.rnp.br -P 1 -i1 -O 5 -n 1G
+
+
+udr rsync -av -stats --progress sdmz@dtn.sdmz.rnp.br:/dados/area-teste/1G_file /dados/area-teste/1G_file
+
+
+wget ftp://dtn.sdmz.rnp.br/1G_file -O /dados/area-teste/1G_file
+
+axel ftp://dtn.sdmz.rnp.br/1G_file -o /dados/area-teste/1G_file -n 1
+
+aria2c -x1 ftp://dtn.sdmz.rnp.br/1G_file -d /dados/area-teste/1G_file
