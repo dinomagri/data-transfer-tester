@@ -68,7 +68,7 @@ Os arquivos 100G_file, 10G_file e 1G_file já estão criados com o mesmo tamanho
 
 Para baixar a VM acesse: https://filesender.rnp.br/?vid=3863a3a0-1b0f-b4c9-727b-0000440c45b4 (Disponível até 10/3/16).
 
-Caso decida por utilizar a VM, continue do tópico [Copiando o código fonte do DTT](https://github.com/dinomagri/data-transfer-tester#copiando-o-código-fonte-do-dtt)
+Caso decida por utilizar a VM, continue do tópico [Copiando o código fonte do DTT](https://github.com/larc-usp/data-transfer-tester#copiando-o-código-fonte-do-dtt)
 
 ## Instalação do DTT
 
@@ -109,7 +109,7 @@ Primeiro vamos realizar o download do código fonte:
 
 ```
 cd ~ 
-wget https://github.com/dinomagri/data-transfer-tester/archive/master.zip
+wget https://github.com/larc-usp/data-transfer-tester/archive/master.zip
 unzip master.zip
 cd data-transfer-tester-master/
 ```
