@@ -2,7 +2,7 @@
 
 O programa [Science DMZ da RNP](https://wiki.rnp.br/display/sciencedmz/Science+DMZ+Home) visa estudar e disseminar melhores práticas de infraestrutura de redes de campus voltadas às aplicações científicas. Dada a crescente escala em que volumes cada vez maiores de dados precisam ser processados e analisados por aplicações científicas as redes de campus das universidades necessitam se adequar a esta nova demanda de transferência de dados entre laboratórios e instituições.
 
-O **Data Transfer Tester** (DTT) foi desenvolvido para facilitar os testes de validação da máquina de transferência de dados ([DTN](https://wiki.rnp.br/display/sciencedmz/DTN)). As ferramentas disponíveis são: 
+O **Data Transfer Tester** (DTT) foi desenvolvido para facilitar os testes de validação da máquina de transferência de dados ([DTN](https://wiki.rnp.br/display/sciencedmz/DTN)). As ferramentas disponíveis são:
 
 * scp
 * gridFTP
@@ -29,6 +29,7 @@ Veja arquivo LICENSE
 - Dino Magri
 - Fabio Chu
 - Felipe Waku
+- Rodrigo Tejos
 
 
 
@@ -63,7 +64,7 @@ Para facilitar o desenvolvimento do DTT, foi criado uma máquina virtua do CentO
 
 	* Usuários sdmz e root
 	* Senha para os dois usuários: sdmz123
-	
+
 Os arquivos 100G_file, 10G_file e 1G_file já estão criados com o mesmo tamanho de 1G para salvar espaço.
 
 Para baixar a VM acesse: https://filesender.rnp.br/?vid=3863a3a0-1b0f-b4c9-727b-0000440c45b4 (Disponível até 10/3/16).
@@ -99,8 +100,8 @@ make && sudo make altinstall
 ```
 
 * Se nenhum erro aparecer, ditige no terminal:
-	* Para verificar se a versão é a 2.6.6: ```python``` 
-	* Para verificar se a versão é a 2.7.11: ```python2.7``` 
+	* Para verificar se a versão é a 2.6.6: ```python```
+	* Para verificar se a versão é a 2.7.11: ```python2.7```
 
 
 ### Copiando o código fonte do DTT
@@ -108,7 +109,7 @@ make && sudo make altinstall
 Primeiro vamos realizar o download do código fonte:
 
 ```
-cd ~ 
+cd ~
 wget https://github.com/larc-usp/data-transfer-tester/archive/master.zip
 unzip master.zip
 cd data-transfer-tester-master/
@@ -123,7 +124,7 @@ Para iniciar um ambiente virtual e ativá-lo:
 ```
 virtualenv -p /usr/local/bin/python2.7 venv
 source venv/bin/activate
-``` 
+```
 > Note que estamos dentro da pasta data-transfer-tester
 
 Rode o comando ```python``` e verifique se a versão é a 2.7.
@@ -157,7 +158,7 @@ Se tudo estiver ok, acesse a pasta portalsdmz e rode o comando:
 
 ```bash
 cd portalsdmz
-rm db.sqlite3 
+rm db.sqlite3
 python manage.py migrate
 python manage.py runserver 172.20.5.170:8000
 ```
@@ -195,7 +196,7 @@ Para testar manualmente as ferramentas para verificar se tudo está funcionando 
 
 > O IP abaixo, deve ser trocado pelo IP do host remoto.
 
-* scp 
+* scp
 	* ```scp sdmz@172.20.5.38:/dados/area-teste/1G_file /dados/area-teste/1G_file```
 
 * gridFTP
