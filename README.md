@@ -30,8 +30,7 @@ Veja arquivo LICENSE
 - Fabio Chu
 - Felipe Waku
 - Rodrigo Tejos
-
-
+- 
 
 ## Instalação e Configuração do CentOS 6.7 e das Ferramentas de Transferência
 
