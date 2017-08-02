@@ -1,19 +1,32 @@
 #scenario_form {
-	margin-left: 5%;
+  margin-left: 5%;
 }
 
 #scenario_form td {
-	padding-top: 3px;
+  padding-top: 3px;
 }
 
-#scenario_form th label{
-	padding-top: 3px;
-	margin: 3px 10px 0px 0px;
+#scenario_form th label {
+  padding-top: 3px;
+  margin: 3px 10px 0px 0px;
 }
 
 .errorlist {
-	color: red;
-	float: right;
-	display: -webkit-box;
+  color: red;
+  float: right;
+  display: -webkit-box;
 }
 
+#load {
+  display: none ;
+  position: absolute;
+  left: 40%;
+  top: 40%;
+	width: 300px;
+	height: 150px;
+	background: #f1f1f1;
+	text-align: center;
+	border: groove;
+	align-items: center;
+	padding: 3%;
+}

@@ -30,7 +30,8 @@ Veja arquivo LICENSE
 - Fabio Chu
 - Felipe Waku
 - Rodrigo Tejos
- 
+- 
+
 ## Instalação e Configuração do CentOS 6.7 e das Ferramentas de Transferência
 
 Para rodar é necessário que o host remoto e o DTT tenham essas ferramentas instaladas. Abaixo segue os tutoriais para instalação e configuração, tanto do sistema operacional CentOS 6.7 como também do DTN:
