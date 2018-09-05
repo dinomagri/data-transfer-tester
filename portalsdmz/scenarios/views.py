@@ -111,6 +111,15 @@ class newScenario(generic.FormView):
 			destino		= form.cleaned_data['destino']
 			origem		= form.cleaned_data['origem']
 			fluxo		= form.cleaned_data['fluxo']
+			
+			
+			print("Iniciando obtencao de ferramenta remota")
+			cmd = 'ssh admin@192.168.122.198 python /home/admin/ftp/script.py '
+
+			path_tools2 = subprocess.check_output(cmd, shell=True)
+			print path_tools2
+			tools = eval(path_tools2)
+			
 
 			path_tools = {}
 			tools = ['aria2c', 'wget', 'axel', 'globus-url-copy', 'iperf', 'scp', 'udt','xrootd','fdt.jar']
@@ -121,25 +130,27 @@ class newScenario(generic.FormView):
 			print path_tools
 			for key,value in path_tools.iteritems():
 				print "entou no for"
-				if value != None:
-						if key == 'aria2c':
-							aria2c		= form.cleaned_data['aria2c']
-						if key == 'wget':
-							wget		= form.cleaned_data['wget']
-						if key == 'axel':
-							axel		= form.cleaned_data['axel']
-						if key == 'globus-url-copy':
-							gridftp		= form.cleaned_data['gridftp']
-						if key == 'xrootd':
-							xrootd      = form.cleaned_data['xrootd']
-						if key == 'iperf':
-							iperf 		= form.cleaned_data['iperf']
-						if key == 'scp':
-							scp 		= form.cleaned_data['scp']
-						if key == 'udt':
-							udr		= form.cleaned_data['udt']
-						if key == 'fdt':
-							fdt      = form.cleaned_data['fdt']
+				for key2, value2 in tools.items():
+					if value != None:
+						if value2 != None and key2 == key :
+								if key == 'aria2c':
+									aria2c		= form.cleaned_data['aria2c']
+								if key == 'wget':
+									wget		= form.cleaned_data['wget']
+								if key == 'axel':
+									axel		= form.cleaned_data['axel']
+								if key == 'globus-url-copy':
+									gridftp		= form.cleaned_data['gridftp']
+								if key == 'xrootd':
+									xrootd      = form.cleaned_data['xrootd']
+								if key == 'iperf':
+									iperf 		= form.cleaned_data['iperf']
+								if key == 'scp':
+									scp 		= form.cleaned_data['scp']
+								if key == 'udt':
+									udr		= form.cleaned_data['udt']
+								if key == 'fdt':
+									fdt      = form.cleaned_data['fdt']
 #					print  scp
 
 			"""if option_scp == 'False' or option_iperf == 'False' or option_wget == 'False' or option_gridftp == 'False' or option_axel == 'False' or option_udr == 'False' or option_aria2c == 'False':
