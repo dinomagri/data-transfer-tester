@@ -4,7 +4,7 @@ from whichcraft import which
 
 
 path_tools = {}
-tools = ['aria2c', 'wget', 'axel', 'globus-url-copy', 'iperf', 'scp', 'udt']
+tools = ['aria2c', 'wget', 'axel', 'globus-url-copy',  'iperf', 'scp', 'udt', 'xrootd','fdt.jar']
 for tool in tools:
          path_tools[tool] = which(tool)
 
