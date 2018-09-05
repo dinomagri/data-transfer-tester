@@ -11,11 +11,13 @@ O **Data Transfer Tester** (DTT) foi desenvolvido para facilitar os testes de va
 * axel
 * aria2c
 * wget
+* XrootD
+* FDT
 
-Todas as ferramentas realizam o Download dos dados. Ou seja, onde o DTT estiver rodando, os dados serão baixados para essa máquina.
+Todas as ferramentas realizam o **Download dos dados**. Ou seja, onde o DTT estiver rodando, os dados serão baixados para essa máquina.
 
 
-> Este software está em versão Alpha. NÃO utilize em ambientes de produção!!!
+> Este software está em versão Beta. NÃO utilize em ambientes de produção!!!
 ---
 
 
@@ -30,77 +32,47 @@ Veja arquivo LICENSE
 - Fabio Chu
 - Felipe Waku
 - Rodrigo Tejos
-- 
 
-## Instalação e Configuração do CentOS 6.7 e das Ferramentas de Transferência
+## Instalação e Configuração do CentOS 7 e das Ferramentas de Transferência
 
-Para rodar é necessário que o host remoto e o DTT tenham essas ferramentas instaladas. Abaixo segue os tutoriais para instalação e configuração, tanto do sistema operacional CentOS 6.7 como também do DTN:
+Para rodar é necessário que o host remoto e o DTT tenham essas ferramentas instaladas. Abaixo segue os tutoriais para instalação e configuração, tanto do sistema operacional CentOS 7 como também do DTN:
 
-* Para a instalação do CentOS 6.7 - https://wiki.rnp.br/pages/viewpage.action?pageId=89563937
-	* Crie uma partição /dados com o sistema de arquivos XFS para facilitar os testes!!!
-* Para a instalação e configuração básica do DTN - https://wiki.rnp.br/pages/viewpage.action?pageId=89564070
+* Para a instalação do CentOS 7 -
+  * Crie uma partição /dados com o sistema de arquivos XFS para facilitar os testes!!!
+* Para a instalação e configuração básica do DTN -
 * Para a instalação das ferramentas:
-	* Instalação Globus Toolkit 5.2 - https://wiki.rnp.br/pages/viewpage.action?pageId=89564077
-	* Instalação SCP/SSH HPN - https://wiki.rnp.br/pages/viewpage.action?pageId=88110308
-	* Instalação UDR - https://wiki.rnp.br/pages/viewpage.action?pageId=88111586
-	* Instalação aria2 - https://wiki.rnp.br/pages/viewpage.action?pageId=89125400
-	* Instalação axel - https://wiki.rnp.br/pages/viewpage.action?pageId=89125404
+  * Instalação Globus Toolkit -
+  * Instalação SCP/SSH HPN - 
+  * Instalação UDR - 
+  * Instalação aria2 - 
+  * Instalação axel - 
+  * Instalação XRootD -
+  * Instalação FDT -
 
-O DTT foi testado em ambiente CentOS 6.7 com as respectivas versões das ferramentas:
+O DTT foi testado em ambiente CentOS 7 com as respectivas versões das ferramentas:
 
-* scp - ```OpenSSH_5.3p1, OpenSSL 1.0.1e-fips 11 Feb 2013```
-* scp hpn - ```OpenSSH_6.6p1-hpn14v5, OpenSSL 1.0.1e-fips 11 Feb 2013```
-* gridFTP - ```globus-url-copy: 8.6``` - Já vem com o globus Toolkit 5.2
-* iperf3 - ```iperf 3.1.2```
-* udr e rsync - ```UDR version v0.9.4-10-g7638b30``` e ```rsync  version 3.0.6  protocol version 30```
-* axel - ```Axel version 2.4 (Linux)```
-* aria2c - ```aria2 versão 1.16.4```
-* wget - ```GNU Wget 1.12 construído em linux-gnu.```
+* scp - 
+* scp hpn - 
+* gridFTP - 
+* iperf3 - 
+* udr e rsync - 
+* axel -
+* aria2c -
+* wget -
+* xrootd - 
+* fdt -
 
 > Com um pouco de esforço, acredito que seja possível rodar o DTT em outras distribuições Linux.
 
-Para facilitar o desenvolvimento do DTT, foi criado uma máquina virtua do CentOS com todas as ferramentas instaladas e funcionando. Já vem com a versão 2.7.11 do Python.
+### Instalação das depêndencias necessárias
 
-	* Usuários sdmz e root
-	* Senha para os dois usuários: sdmz123
-
-Os arquivos 100G_file, 10G_file e 1G_file já estão criados com o mesmo tamanho de 1G para salvar espaço.
-
-Para baixar a VM acesse: https://filesender.rnp.br/?vid=3863a3a0-1b0f-b4c9-727b-0000440c45b4 (Disponível até 10/3/16).
-
-Caso decida por utilizar a VM, continue do tópico [Copiando o código fonte do DTT](https://github.com/larc-usp/data-transfer-tester#copiando-o-código-fonte-do-dtt)
-
-## Instalação do DTT
-
-Antes de rodar o DTT, é necessário instalar a versão 2.7 do Python, pois é necessário manter a versão 2.6 que é utilizada pelo CentOs 6.7. Portanto é importante que ambas as versões (2.6 e 2.7) existam, uma vez que o sistema operacional pode quebrar.
-
-Na página: https://github.com/h2oai/h2o-2/wiki/Installing-python-2.7-on-centos-6.3.-Follow-this-sequence-exactly-for-centos-machine-only tem um passo a passo bem detalhado para instalar a versão 2.7 do Python no CentOS 6.3. Vale a leitura.
-
-Para instalar a versão 2.7.11 no CentOS 6.7, devemos realizar os seguintes passos:
-
-### Download, compilação e instalação
-
-* Instalando as dependências:
+Para instalar corretamente o software, será necessário instalar os seguintes softwares no Centos 7
 
 ```bash
 sudo yum groupinstall "Development tools" -y
 sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel -y
 ```
 
-* Realizando o download, compilação e instalação do Python 2.7.11
-
-```bash
-cd /tmp
-wget --no-check-certificate https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tar.xz
-tar xf Python-2.7.11.tar.xz
-cd Python-2.7.11/
-./configure --prefix=/usr/local
-make && sudo make altinstall
-```
-
-* Se nenhum erro aparecer, ditige no terminal:
-	* Para verificar se a versão é a 2.6.6: ```python```
-	* Para verificar se a versão é a 2.7.11: ```python2.7```
 
 
 ### Copiando o código fonte do DTT
@@ -111,6 +83,7 @@ Primeiro vamos realizar o download do código fonte:
 cd ~
 wget https://github.com/larc-usp/data-transfer-tester/archive/master.zip
 unzip master.zip
+rm -rf master.zip
 cd data-transfer-tester-master/
 ```
 
@@ -142,7 +115,7 @@ gevent==1.0.1
 greenlet==0.4.6
 pysqlite==2.6.3
 simplejson==3.6.5
-wsgiref==0.1.2
+whichcraft==0.4.1
 ```
 
 Para instalar essas bibliotecas, vamos utilizar o pip com o parâmetro -r para instalar todas as bibliotecas listadas no arquito requirements.txt
@@ -163,6 +136,12 @@ python manage.py runserver 172.20.5.170:8000
 ```
 
 > Utilize o IP que está configurado para a máquina DTT.
+
+**IMPORTANTE** - Caso a variável DJANGO_SETTINGS_MODULE está definida no ambiente, será necessário remove-la antes de rodar os comandos acima, pois o mesmo irá gerar um erro.
+
+```bash
+unset DJANGO_SETTINGS_MODULE
+```
 
 Agora vamos criar um usuário admin para a seção de Administração do portal (/admin), digite no terminal Ctrl+C para parar a execução do DTT e digite:
 

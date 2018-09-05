@@ -40,7 +40,7 @@ class ScenarioForm(forms.Form):
 
 
 					print("Iniciando obtencao de ferramenta remota")
-					cmd = 'ssh admin@192.168.122.198 python /home/admin/ftp/script.py '
+					cmd = 'ssh sdmz@adm.sciencedmz.usp.br python /tmp/check_tools_dtt.py '
 
 				 	path_tools2 = subprocess.check_output(cmd, shell=True)
 #					path_tools2

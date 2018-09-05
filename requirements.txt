@@ -4,4 +4,4 @@ gevent==1.0.1
 greenlet==0.4.6
 pysqlite==2.6.3
 simplejson==3.8.2
-wsgiref==0.1.2
+whichcraft==0.4.1
