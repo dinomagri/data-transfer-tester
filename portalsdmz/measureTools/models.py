@@ -35,7 +35,7 @@ class iperfData(models.Model):
 	scenario 	= models.ForeignKey(ScenarioData, null=True)
 	num_teste 	= models.SmallIntegerField()
 	descricao_erro	= models.TextField(blank=True)
-	
+
 	def __unicode__(self):
 		return str(self.id)
 
@@ -44,7 +44,7 @@ class axelData(models.Model):
 	scenario 	= models.ForeignKey(ScenarioData, null=True)
 	num_teste 	= models.SmallIntegerField()
 	descricao_erro	= models.TextField(blank=True)
-	
+
 	def __unicode__(self):
 		return str(self.id)
 
@@ -53,7 +53,7 @@ class udrData(models.Model):
 	scenario 	= models.ForeignKey(ScenarioData, null=True)
 	num_teste 	= models.SmallIntegerField()
 	descricao_erro	= models.TextField(blank=True)
-	
+
 	def __unicode__(self):
 		return str(self.id)
 
@@ -62,6 +62,24 @@ class aria2cData(models.Model):
 	scenario 	= models.ForeignKey(ScenarioData, null=True)
 	num_teste 	= models.SmallIntegerField()
 	descricao_erro	= models.TextField(blank=True)
-	
+
+	def __unicode__(self):
+		return str(self.id)
+
+class xrootdData(models.Model):
+	velocidade 	= models.DecimalField(max_digits=5, decimal_places=1)
+	scenario 	= models.ForeignKey(ScenarioData, null=True)
+	num_teste 	= models.SmallIntegerField()
+	descricao_erro	= models.TextField(blank=True)
+
+	def __unicode__(self):
+		return str(self.id)
+
+class fdtData(models.Model):
+	velocidade 	= models.DecimalField(max_digits=5, decimal_places=1)
+	scenario 	= models.ForeignKey(ScenarioData, null=True)
+	num_teste 	= models.SmallIntegerField()
+	descricao_erro	= models.TextField(blank=True)
+
 	def __unicode__(self):
 		return str(self.id)

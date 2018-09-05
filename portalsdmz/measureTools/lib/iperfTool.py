@@ -13,7 +13,7 @@ def finalizarIperf3Remoto(hostname):
 	print"Finalizando qualquer iperf3 iniciado ..."
 	subprocess.call(['ssh', hostname, 'killall', 'iperf3'])
 	subprocess.call(['sleep', '2'])
-	
+
 def converteBandwidthParaMb(bandwidth):
 	if bandwidth == 'G':
 		return 1024

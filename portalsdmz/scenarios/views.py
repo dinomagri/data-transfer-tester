@@ -1,4 +1,5 @@
 from django.views import generic
+from whichcraft import which
 
 import datetime
 from django.shortcuts import (
@@ -13,13 +14,13 @@ from .models import	(
 	ScenarioData, ScenarioTimeData
 )
 from measureTools.lib import (
-	gridftpTool, iperfTool, scpTool, wgetTool, axelTool, udrTool, aria2cTool
+	gridftpTool, iperfTool, scpTool, wgetTool, axelTool, udrTool, aria2cTool, xrootdTool, fdtTool
 )
 from measureTools.models import (
-	gridftpData, iperfData, scpData, wgetData, axelData, udrData, aria2cData
+	gridftpData, iperfData, scpData, wgetData, axelData, udrData, aria2cData, xrootdData, fdtData
 )
 
-def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c):
+def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt):
 
 	scenario = ScenarioData(nome = nome, data_inicio = data, tamanho = tamanho)
 	scenario.save()
@@ -28,7 +29,7 @@ def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, i
 	print data
 	print tamanho
 	for i in range(1, limite+1):
-		
+
 		startTime = datetime.datetime.now()
 		#startTime = nowStart.strftime('%d-%m-%Y %H:%M')
 		print startTime
@@ -53,14 +54,20 @@ def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, i
 		if aria2c :
 			print 'executando aria2c'
 			aria2cTool.aria2cTool(ip_remoto, tamanho, i, origem, destino, fluxo, scenario)
-	
+		if xrootd :
+			print 'executando xrootd'
+			xrootdTool.xrootdTool(ip_remoto, tamanho, i, origem, destino, fluxo, scenario)
+		if fdt :
+			print 'executando fdt'
+			fdtTool.fdtTool(ip_remoto, tamanho, i, origem, destino, fluxo, scenario)
+
 		endTime = datetime.datetime.now()
 		#endTime = nowEnd.strftime('%d-%m-%Y %H:%M')
 		scenarioTime = ScenarioTimeData(data_inicio = startTime, data_fim = endTime, num_teste = i, cenario = scenario)
 		scenarioTime.save()
 
 	scenario.data_fim = datetime.datetime.now()
-	#scenario.data_fim = nowDataFim.strftime('%d-%m-%Y %H:%M')		
+	#scenario.data_fim = nowDataFim.strftime('%d-%m-%Y %H:%M')
 
 	scenario.save()
 
@@ -68,46 +75,79 @@ class scenarioHelper(generic.TemplateView):
 	template_name = 'helper.html'
 
 class newScenario(generic.FormView):
-	template_name = 'scenarios/newscenario.html'
-	form_class = ScenarioForm
-	success_url = 'results'
 
-	def form_valid(self, form):
-		
 
-		"""option_scp  	= form.cleaned_data.get("scp") 
-		option_wget  	= form.cleaned_data.get("wget")
-		option_udr      = form.cleaned_data.get("udr")
-		option_iperf	= form.cleaned_data.get("iperf")
-		option_axel	= form.cleaned_data.get("axel")
-		option_gridftp	= form.cleaned_data.get("gridftp")
-		option_aria2c	= form.cleaned_data.get("aria2c")
-		fluxo_valid 	= form.cleaned_data.get("fluxo")"""
-		
+#		path_tools = {}
+#		tools = ['aria2c', 'wget', 'axel', 'globus-url-copy', 'iperf', 'scp', 'udt']
+#		for tool in tools:
+#				path_tools[tool] = which(tool)
+#		print path_tools
 
-		nome 		= form.cleaned_data['nome']
-		data 		= form.cleaned_data['data']
-		tamanho 	= form.cleaned_data['tamanho']
-		limite		= form.cleaned_data['limite']
-		ip_remoto	= form.cleaned_data['ip_remoto']
-		destino		= form.cleaned_data['destino']
-		origem		= form.cleaned_data['origem']
-		fluxo		= form.cleaned_data['fluxo']
 
-		iperf 		= form.cleaned_data['iperf']
-		scp 		= form.cleaned_data['scp']	
-		wget		= form.cleaned_data['wget']
-		gridftp		= form.cleaned_data['gridftp']
-		axel		= form.cleaned_data['axel']
-		udr		= form.cleaned_data['udr']
-		aria2c		= form.cleaned_data['aria2c']
+		template_name = 'scenarios/newscenario.html'
+		form_class = ScenarioForm
+		success_url = 'results'
 
-		"""if option_scp == 'False' or option_iperf == 'False' or option_wget == 'False' or option_gridftp == 'False' or option_axel == 'False' or option_udr == 'False' or option_aria2c == 'False':
- 
-			raise forms.ValidationError("Error. All fields empty")"""
+		def form_valid(self, form):
+			print "entrou depois"
+#			print path_tools
+			"""option_scp  	= form.cleaned_data.get("scp")
+			option_wget  	= form.cleaned_data.get("wget")
+			option_udr      = form.cleaned_data.get("udr")
+			option_iperf	= form.cleaned_data.get("iperf")
+			option_axel	= form.cleaned_data.get("axel")
+			option_gridftp	= form.cleaned_data.get("gridftp")
+			option_aria2c	= form.cleaned_data.get("aria2c")
+			fluxo_valid 	= form.cleaned_data.get("fluxo")"""
 
-		runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c)
-		return super(newScenario, self).form_valid(form)
+			iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp= False
+#			scp = True
+
+			nome 		= form.cleaned_data['nome']
+			data 		= form.cleaned_data['data']
+			tamanho 	= form.cleaned_data['tamanho']
+			limite		= form.cleaned_data['limite']
+			ip_remoto	= form.cleaned_data['ip_remoto']
+			destino		= form.cleaned_data['destino']
+			origem		= form.cleaned_data['origem']
+			fluxo		= form.cleaned_data['fluxo']
+
+			path_tools = {}
+			tools = ['aria2c', 'wget', 'axel', 'globus-url-copy', 'iperf', 'scp', 'udt','xrootd','fdt.jar']
+			for tool in tools:
+					path_tools[tool] = which(tool)
+
+			print "passou do basico"
+			print path_tools
+			for key,value in path_tools.iteritems():
+				print "entou no for"
+				if value != None:
+						if key == 'aria2c':
+							aria2c		= form.cleaned_data['aria2c']
+						if key == 'wget':
+							wget		= form.cleaned_data['wget']
+						if key == 'axel':
+							axel		= form.cleaned_data['axel']
+						if key == 'globus-url-copy':
+							gridftp		= form.cleaned_data['gridftp']
+						if key == 'xrootd':
+							xrootd      = form.cleaned_data['xrootd']
+						if key == 'iperf':
+							iperf 		= form.cleaned_data['iperf']
+						if key == 'scp':
+							scp 		= form.cleaned_data['scp']
+						if key == 'udt':
+							udr		= form.cleaned_data['udt']
+						if key == 'fdt':
+							fdt      = form.cleaned_data['fdt']
+#					print  scp
+
+			"""if option_scp == 'False' or option_iperf == 'False' or option_wget == 'False' or option_gridftp == 'False' or option_axel == 'False' or option_udr == 'False' or option_aria2c == 'False':
+
+				raise forms.ValidationError("Error. All fields empty")"""
+			print "an tes do return"
+			runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt)
+			return super(newScenario, self).form_valid(form)
 
 class scenarioList(generic.ListView):
 	template_name = 'scenarios/scenario_list.html'
@@ -150,6 +190,13 @@ class scenarioResults(generic.ListView):
 		if gridftpResults:
 			self.queryResult['gridftp'] = gridftpResults
 
+		xrootdResults = xrootdData.objects.all().filter(scenario=self.scenario_id)
+		if xrootdResults:
+			self.queryResult['xrootd'] = xrootdResults
+
+		fdtResults = fdtData.objects.all().filter(scenario=self.scenario_id)
+		if fdtResults:
+			self.queryResult['fdt'] = fdtResults
 
 	def count_results(self):
 		num_results = max([
@@ -159,7 +206,9 @@ class scenarioResults(generic.ListView):
 			gridftpData.objects.all().filter(scenario=self.scenario_id).count(),
 			axelData.objects.all().filter(scenario = self.scenario_id).count(),
 			udrData.objects.all().filter(scenario = self.scenario_id).count(),
-			aria2cData.objects.all().filter(scenario = self.scenario_id).count()
+			aria2cData.objects.all().filter(scenario = self.scenario_id).count(),
+			xrootdData.objects.all().filter(scenario = self.scenario_id).count(),
+			fdtData.objects.all().filter(scenario = self.scenario_id).count()
 		])
 
 		return num_results
@@ -281,7 +330,7 @@ serializedQuery = {
 		'num_teste':i
 		'inicio':	tempo_inicio
 		'fim':		tempo_fim
-		'velocidade':{		
+		'velocidade':{
 			'wget':		velocidadeWget
 			'iperf':	velocidadeIperf
 			'scp':		velocidadeScp
