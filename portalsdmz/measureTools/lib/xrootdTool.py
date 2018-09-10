@@ -87,7 +87,7 @@ def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, ce
 		#cmd_xrootd = "xrdcp -d 3 "+ pasta_ori  + "/" + tamanho +"  root://" + ip_remoto + " xrdcp   /root/"+ pasta_des + "/" + tipo + "/" + tamanho + "_file_" + str(numero_teste) + " -d1 "
 		#cmd_xrootd = "time -p globus-url-copy -vb -p " + str(fluxo) + " ftp://" + ip_remoto + ":" + str(porta)  + "/" + pasta_ori  + "/" + tamanho + "_file file:///" \
 		#	+ pasta_des + "/" + tipo + "/" + tamanho + "_file_" + str(numero_teste)
-		cmd_xrootd = "xrdcp /home/admin/" + pasta_ori + tamanho + "_file xroot://admin@" + ip_remoto + "//home/admin/" + pasta_des
+		cmd_xrootd = "xrdcp xroot://admin@" + ip_remoto + "//home/admin/" + pasta_des /home/admin/" + pasta_ori + tamanho + "_file
 
 		print cmd_xrootd
 
