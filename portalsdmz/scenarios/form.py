@@ -60,6 +60,7 @@ class ScenarioForm(forms.Form):
 								if value2 != None and key2 == key :
 									if key == 'globus-url-copy':
 										self.fields['gridftp'] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+									else:
 									self.fields[key] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 
 
