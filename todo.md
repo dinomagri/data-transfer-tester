@@ -1,10 +1,17 @@
-- (DINO) Script em bash para executar remoto:
+- (DINO) Script em bash para executar remoto: FEITO!
   - Instalar o pip 
   - Instalar o whichcraft
   - Copiar o check_tools_dtt.py para o /tmp
   - Modificar esse script para executar em bash
 
-- (DINO) Remover udt das ferramentas no script e verificar o fdt.jar em conjunto com os passos de instalação da ferramenta.
+
+- (DINO) Remover udt das ferramentas no script e verificar o fdt.jar em conjunto com os passos de instalação da ferramenta. FEITO
+
+O script: check_tools.sh deve ser utilizado para visualizar a recuperação.
+
+O FDT foi movido para /usr/bin/fdt.jar (precisa testar para ver se funciona corretamente).
+
+O udt foi removido da verificação.
 
 
 
