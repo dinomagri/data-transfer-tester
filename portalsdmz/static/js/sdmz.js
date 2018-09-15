@@ -26,7 +26,10 @@ $(document).ready(function($) {
         //alert('success');
         $("#load").hide();
         window.location.href = "/scenarios/results/";
-      }
+      }error: function(){
+        alert('algum erro ocorreu!');
+        window.location.href = "/scenarios/";
+    }
     });
     return false;
   });
