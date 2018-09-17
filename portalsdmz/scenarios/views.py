@@ -1,6 +1,8 @@
 from django.views import generic
 from whichcraft import which
 
+import time, subprocess, re
+
 import datetime
 from django.shortcuts import (
 	render_to_response, RequestContext
