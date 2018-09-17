@@ -114,7 +114,7 @@ class newScenario(generic.FormView):
 			
 			
 			print("Iniciando obtencao de ferramenta remota")
-			cmd = 'ssh sdmz@adm.sciencedmz.usp.br python /tmp/check_tools_dtt.py '
+			cmd = 'ssh admin@dtn.sciencedmz.usp.br python /tmp/check_tools_dtt.py '
 
 			path_tools2 = subprocess.check_output(cmd, shell=True)
 			print path_tools2
