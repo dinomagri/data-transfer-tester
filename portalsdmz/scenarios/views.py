@@ -1,7 +1,7 @@
 from django.views import generic
 from whichcraft import which
 
-import time, subprocess, re
+import subprocess
 
 import datetime
 from django.shortcuts import (
