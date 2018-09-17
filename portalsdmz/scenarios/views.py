@@ -120,7 +120,7 @@ class newScenario(generic.FormView):
 
 			path_tools2 = subprocess.check_output(cmd, shell=True)
 			print path_tools2
-			tools = eval(path_tools2)
+			tools1 = eval(path_tools2)
 			
 
 			path_tools = {}
@@ -132,7 +132,7 @@ class newScenario(generic.FormView):
 			print path_tools
 			for key,value in path_tools.iteritems():
 				print "entou no for"
-				for key2, value2 in tools.items():
+				for key2, value2 in tools1.items():
 					if value != None:
 						if value2 != None and key2 == key :
 								if key == 'aria2c':
