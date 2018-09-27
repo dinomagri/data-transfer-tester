@@ -22,5 +22,5 @@ O udt foi removido da verificação.
 
 - (RODRIGO) Precisar revisar o comando xrootdTool.py para considerar as URLs corretamente FEITO!
 - (RODRIGO) Remover um dos dois globus-url-copy ou gridftp na tela de cenarios de teste. FEITO!
-- (RODRIGO) Caso dê algum erro, deve encerrar a solicitação.
+- (RODRIGO) Caso dê algum erro, deve encerrar a solicitação. FEITO!
 
