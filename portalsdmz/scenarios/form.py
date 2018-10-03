@@ -9,9 +9,6 @@ SIZE_CHOICES = (
 	("100G", '100G            ')
 )
 
-class ScenarioFormInit(forms.Form):
-		ip_remoto	= forms.CharField(max_length = 120, initial = '172.20.5.38', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
-
 
 class ScenarioForm(forms.Form):
 
