@@ -78,5 +78,4 @@ class ScenarioForm(forms.Form):
 
 
 class ScenarioFormInit(forms.Form):
-
-		ip_remoto	= forms.CharField(max_length = 120, initial = '172.20.5.38', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
+		ip_remoto1	= forms.CharField(max_length = 120, initial = '172.20.5.38', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
