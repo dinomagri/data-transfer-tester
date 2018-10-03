@@ -23,6 +23,7 @@
 			{% if user.is_authenticated %}
 				<ul class="nav navbar-nav">
 					<li ><a href="{% url 'new_scenario' %}">Novo cenário</a></li>
+          <li ><a href="{% url 'new_scenarioinit' %}">cenário</a></li>
 					<li ><a href="{% url 'scenario_list' %}">Resultados</a></li>
 					<li ><a href="{% url 'helper' %}">Ajuda</a></li>
 					<li ><a href="{% url 'logout' %}">Logout</a></li>
@@ -41,7 +42,7 @@
 					<label for="inputPassword" class="sr-only">Password</label>
 					<input type="password" class="form-control" name="password" placeholder="Password">
 				</div>
-				
+
 				<button type="submit" value = "submit" class="btn btn-success" style="margin-right:30px">Sign In</button>
 				</form>
 			{% endif %}
