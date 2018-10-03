@@ -173,7 +173,7 @@ class newscenarioinit(generic.FormView):
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
 
-		return super(newscenarioinit, self).form_valid(form)
+			return super(newscenarioinit, self).form_valid(form)
 
 class scenarioList(generic.ListView):
 	template_name = 'scenarios/scenario_list.html'
