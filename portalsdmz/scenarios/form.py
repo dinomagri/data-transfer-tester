@@ -9,6 +9,9 @@ SIZE_CHOICES = (
 	("100G", '100G            ')
 )
 
+class ScenarioFormInit(forms.Form):
+		ip_remoto	= forms.CharField(max_length = 120, initial = '172.20.5.38', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
+
 
 class ScenarioForm(forms.Form):
 
@@ -73,9 +76,3 @@ class ScenarioForm(forms.Form):
 #	aria2c 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 #	xrootd 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 #	fdt 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-
-
-
-
-class ScenarioFormInit(forms.Form):
-		ip_remoto1	= forms.CharField(max_length = 120, initial = '172.20.5.38', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))

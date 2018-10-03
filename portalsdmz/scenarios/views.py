@@ -171,7 +171,7 @@ class newscenarioinit(generic.FormView):
 		def form_valid(self, form):
 			print "entrou depois"
 
-			ip_remoto1	= form.cleaned_data['ip_remoto1']
+			ip_remoto	= form.cleaned_data['ip_remoto']
 
 			return super(newscenarioinit, self).form_valid(form)
 
