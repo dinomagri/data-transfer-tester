@@ -162,7 +162,7 @@ class newScenario(generic.FormView):
 			runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt)
 			return super(newScenario, self).form_valid(form)
 
-class newScenario(generic.FormView):
+class newscenarioinit(generic.FormView):
 
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioFormInit
