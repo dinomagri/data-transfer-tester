@@ -26,7 +26,8 @@ $(document).ready(function($) {
         //alert('success');
         $("#load").hide();
         window.location.href = "/scenarios/results/";
-      }error: function(){
+      },
+      error: function(){
         alert('algum erro ocorreu!');
         window.location.href = "/scenarios/";
     }
@@ -47,4 +48,26 @@ $(document).ready(function($) {
       $("#id_fluxo").show();
     }
   })
+});
+
+
+
+$(document).ready(function($) {
+  $('#loadscenario').on('submit', function(e) { // form when submit action
+    //console.log($(this).serialize()); // log for see the form data serialzed which is equal to the one send when submit normally
+    e.preventDefault(); //prevet default action
+    $.ajax({ // http call
+      type: "POST", // method
+      url: "/", // same path from action
+      data: $(this).serialize(),
+      success: function() { // when success response
+        window.location.href = "/scenarios";
+      },
+      error: function(){
+        alert('algum erro ocorreu!');
+        window.location.href = "/";
+    }
+    });
+    return false;
+  });
 });

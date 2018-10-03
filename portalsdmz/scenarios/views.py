@@ -113,15 +113,15 @@ class newScenario(generic.FormView):
 			destino		= form.cleaned_data['destino']
 			origem		= form.cleaned_data['origem']
 			fluxo		= form.cleaned_data['fluxo']
-			
-			
+
+
 			print("Iniciando obtencao de ferramenta remota")
 			cmd = 'ssh admin@dtn.sciencedmz.usp.br python /tmp/check_tools_dtt.py '
 
 			path_tools2 = subprocess.check_output(cmd, shell=True)
 			print path_tools2
 			tools1 = eval(path_tools2)
-			
+
 
 			path_tools = {}
 			tools = ['aria2c', 'wget', 'axel', 'globus-url-copy', 'iperf', 'scp', 'udt','xrootd','fdt.jar']
@@ -160,6 +160,19 @@ class newScenario(generic.FormView):
 				raise forms.ValidationError("Error. All fields empty")"""
 			print "an tes do return"
 			runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt)
+			return super(newScenario, self).form_valid(form)
+
+class newScenario(generic.FormView):
+
+		template_name = 'scenarios/newscenarioinit.html'
+		form_class = ScenarioFormInit
+		success_url = 'scenarios'
+
+		def form_valid(self, form):
+			print "entrou depois"
+
+			ip_remoto	= form.cleaned_data['ip_remoto']
+
 			return super(newScenario, self).form_valid(form)
 
 class scenarioList(generic.ListView):
