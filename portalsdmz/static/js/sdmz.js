@@ -25,7 +25,7 @@ $(document).ready(function($) {
       success: function() { // when success response
         //alert('success');
         $("#load").hide();
-        window.location.href = "/scenario/scenario/results/";
+        window.location.href = "/scenario/results/";
       },
       error: function(){
         alert('algum erro ocorreu!');
@@ -63,9 +63,10 @@ $(document).ready(function($) {
       success: function() { // when success response
         window.location.href = "/scenario/scenario/";
       },
-      error: function(){
+      error: function(erro){
         alert('algum erro ocorreu!, mas foi o botao certo');
         window.location.href = "/";
+        console.log(erro)
     }
     });
     return false;
