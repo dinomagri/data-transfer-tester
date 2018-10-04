@@ -64,9 +64,10 @@ $(document).ready(function($) {
         window.location.href = "/scenario/scenario/";
       },
       error: function(erro){
+        console.log(erro)
         alert('algum erro ocorreu!, mas foi o botao certo');
         window.location.href = "/";
-        console.log(erro)
+
     }
     });
     return false;
