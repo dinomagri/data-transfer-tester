@@ -48,28 +48,37 @@ $(document).ready(function($) {
       $("#id_fluxo").show();
     }
   })
-});
 
 
+    $('#loadscenario').on('submit', function(e) { // form when submit action
+      //console.log($(this).serialize()); // log for see the form data serialzed which is equal to the one send when submit normally
+      e.preventDefault(); //prevet default action
+      $.ajax({ // http call
+        type: "POST", // method
+        url: "/scenarios/", // same path from action
+        //data: $(this).serialize(),
+        success: function() { // when success response
+          window.location.href = "/scenario/scenario/";
+        },
+        error: function(erro){
+          console.log(erro)
+          alert('algum erro ocorreu!, mas foi o botao certo');
+          window.location.href = "/";
 
-$(document).ready(function($) {
-  $('#loadscenario').on('submit', function(e) { // form when submit action
-    //console.log($(this).serialize()); // log for see the form data serialzed which is equal to the one send when submit normally
-    e.preventDefault(); //prevet default action
-    $.ajax({ // http call
-      type: "POST", // method
-      url: "/scenarios/", // same path from action
-      //data: $(this).serialize(),
-      success: function() { // when success response
-        window.location.href = "/scenario/scenario/";
-      },
-      error: function(erro){
-        console.log(erro)
-        alert('algum erro ocorreu!, mas foi o botao certo');
-        window.location.href = "/";
-
-    }
+      }
+      });
+      return false;
     });
-    return false;
-  });
+
+
+
+
+
+
+
+
+
+
+
+
 });
