@@ -86,7 +86,7 @@ class newScenario(generic.FormView):
 #		print path_tools
 
 
-		template_name = 'scenarios/newscenario.html'
+		template_name = 'scenario/newscenario.html'
 		form_class = ScenarioForm
 		success_url = 'results'
 
@@ -166,7 +166,7 @@ class newScenarioInit(generic.FormView):
 
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioForminit
-		success_url = 'scenario'
+		success_url = 'scenarios/scenario'
 
 		def form_valid(self, form):
 			print "entrou depois"
@@ -176,14 +176,14 @@ class newScenarioInit(generic.FormView):
 			return super(newScenarioInit, self).form_valid(form)
 
 class scenarioList(generic.ListView):
-	template_name = 'scenarios/scenario_list.html'
+	template_name = 'scenarios/scenario/scenario_list.html'
 	context_object_name = 'scenario_list'
 
 	def get_queryset(self):
 		return ScenarioData.objects.all
 
 class scenarioResults(generic.ListView):
-	template_name = 'scenarios/scenario_results.html'
+	template_name = 'scenarios/scenario/scenario_results.html'
 	context_object_name = 'scenario_results'
 
 	def mount_query_results(self):
