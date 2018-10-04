@@ -13,7 +13,6 @@
 //     return false;
 //   });
 // });
-/*
 $(document).ready(function($) {
   $('#loadform').on('submit', function(e) { // form when submit action
     //console.log($(this).serialize()); // log for see the form data serialzed which is equal to the one send when submit normally
@@ -51,7 +50,7 @@ $(document).ready(function($) {
   })
 });
 
-*/
+
 
 $(document).ready(function($) {
   $('#loadscenario').on('submit', function(e) { // form when submit action

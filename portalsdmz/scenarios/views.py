@@ -166,7 +166,7 @@ class newScenarioInit(generic.FormView):
 
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioForminit
-		success_url = 'scenarios'
+		success_url = 'scenario'
 
 		def form_valid(self, form):
 			print "entrou depois"
