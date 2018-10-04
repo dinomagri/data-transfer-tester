@@ -86,7 +86,7 @@ class newScenario(generic.FormView):
 #		print path_tools
 
 
-		template_name = 'scenario/newscenario.html'
+		template_name = 'scenarios/scenario/newscenario.html'
 		form_class = ScenarioForm
 		success_url = 'results'
 
