@@ -176,14 +176,14 @@ class newScenarioInit(generic.FormView):
 			return super(newScenarioInit, self).form_valid(form)
 
 class scenarioList(generic.ListView):
-	template_name = 'scenarios/scenario/results/scenario_list.html'
+	template_name = 'scenarios/scenario/scenario_list.html'
 	context_object_name = 'scenario_list'
 
 	def get_queryset(self):
 		return ScenarioData.objects.all
 
 class scenarioResults(generic.ListView):
-	template_name = 'scenarios/scenario/results/scenario_results.html'
+	template_name = 'scenarios/scenario/scenario_results.html'
 	context_object_name = 'scenario_results'
 
 	def mount_query_results(self):
