@@ -20,16 +20,16 @@ $(document).ready(function($) {
     $("#load").show();
     $.ajax({ // http call
       type: "POST", // method
-      url: "/scenarios/", // same path from action
+      url: "/scenario/", // same path from action
       data: $(this).serialize(),
       success: function() { // when success response
         //alert('success');
         $("#load").hide();
-        window.location.href = "/scenarios/results/";
+        window.location.href = "/scenario/results/";
       },
       error: function(){
         alert('algum erro ocorreu!');
-        window.location.href = "/scenarios/";
+        window.location.href = "/";
     }
     });
     return false;
@@ -61,7 +61,7 @@ $(document).ready(function($) {
       url: "/scenarios/", // same path from action
       //data: $(this).serialize(),
       success: function() { // when success response
-        window.location.href = "/scenarios";
+        window.location.href = "/scenario";
       },
       error: function(){
         alert('algum erro ocorreu!, mas foi o botao certo');
