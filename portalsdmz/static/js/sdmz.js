@@ -64,7 +64,7 @@ $(document).ready(function($) {
         window.location.href = "/scenarios";
       },
       error: function(){
-        alert('algum erro ocorreu!');
+        alert('algum erro ocorreu!, mas foi o botao certo');
         window.location.href = "/";
     }
     });
