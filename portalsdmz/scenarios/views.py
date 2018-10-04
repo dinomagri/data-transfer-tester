@@ -165,7 +165,7 @@ class newScenario(generic.FormView):
 class newScenarioInit(generic.FormView):
 
 		template_name = 'scenarios/newscenarioinit.html'
-		form_class = ScenarioFormInit
+		form_class = ScenarioForminit
 		success_url = 'scenarios'
 
 		def form_valid(self, form):
@@ -173,7 +173,7 @@ class newScenarioInit(generic.FormView):
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
 
-			return super(newscenarioinit, self).form_valid(form)
+			return super(newScenarioInit, self).form_valid(form)
 
 class scenarioList(generic.ListView):
 	template_name = 'scenarios/scenario_list.html'
