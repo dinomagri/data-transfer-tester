@@ -12,7 +12,7 @@ SIZE_CHOICES = (
 )
 
 
-class ScenarioForm(forms.Form,ip):
+class ScenarioForm(forms.Form):
 
 
 		nome 		= forms.CharField(max_length = 120, initial='Teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
@@ -42,40 +42,40 @@ class ScenarioForm(forms.Form,ip):
 
 #					Ip = getIP()
 #					Ip = request.session['ip_remoto']
-					print("Iniciando obtencao de ferramenta remota")
-					cmd = 'ssh sdmz@dtn.sciencedmz.usp.br python /tmp/script.py'
+# 					print("Iniciando obtencao de ferramenta remota")
+# 					cmd = 'ssh sdmz@dtn.sciencedmz.usp.br python /tmp/script.py'
+#
+# 				 	path_tools2 = subprocess.check_output(cmd, shell=True)
+# #					path_tools2
+# #					path_tools2 = list()
+# 					print path_tools2
+# #					print path_tools2.split()
+# #					try:
+# 					tools = eval(path_tools2)
+# #					except:
+#
+#
+#
+#
+# 					for key, value in path_tools.items():
+# 						for key2, value2 in tools.items():
+# 							if value != None:
+# 								if value2 != None and key2 == key :
+# 									if key == 'globus-url-copy':
+# 										self.fields['gridftp'] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+# 									else:
+# 										self.fields[key] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 
-				 	path_tools2 = subprocess.check_output(cmd, shell=True)
-#					path_tools2
-#					path_tools2 = list()
-					print path_tools2
-#					print path_tools2.split()
-#					try:
-					tools = eval(path_tools2)
-#					except:
 
-
-
-
-					for key, value in path_tools.items():
-						for key2, value2 in tools.items():
-							if value != None:
-								if value2 != None and key2 == key :
-									if key == 'globus-url-copy':
-										self.fields['gridftp'] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-									else:
-										self.fields[key] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-
-
-	# scp 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-	# wget		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-	# udr 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-	# iperf 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-	# gridftp		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-	# axel 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-	# aria2c 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-	# xrootd 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-	# fdt 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					scp 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					wget		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					udr 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					iperf 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					gridftp		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					axel 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					aria2c 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					xrootd 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
+					fdt 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 
 class ScenarioForminit(forms.Form):
 
