@@ -20,7 +20,7 @@ $(document).ready(function($) {
     $("#load").show();
     $.ajax({ // http call
       type: "POST", // method
-      url: "/scenarios/scenario/", // same path from action
+      url: "/scenarios/scenario", // same path from action
       data: $(this).serialize(),
       success: function() { // when success response
         //alert('success');
