@@ -58,7 +58,7 @@ $(document).ready(function($) {
         url: "/scenarios", // same path from action
         //data: $(this).serialize(),
         success: function() { // when success response
-          window.location.href = "/scenario/";
+          window.location.href = "/scenarios/scenario";
         },
         error: function(erro){
           console.log(erro)
