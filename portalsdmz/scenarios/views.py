@@ -11,7 +11,8 @@ from django.utils import timezone
 
 from chartit import DataPool, Chart
 
-from .form import ScenarioForm,ScenarioForminit
+from .form import ScenarioForm
+from .form1 import ScenarioForminit
 from .models import	(
 	ScenarioData, ScenarioTimeData
 )
