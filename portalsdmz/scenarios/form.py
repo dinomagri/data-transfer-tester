@@ -42,7 +42,6 @@ class ScenarioForm(forms.Form):
 
 #					Ip = getIP()
 #					Ip = request.session['ip_remoto']
-					print {{ip_remoto}}
 					print("Iniciando obtencao de ferramenta remota")
 					cmd = 'ssh sdmz@dtn.sciencedmz.usp.br python /tmp/script.py'
 
