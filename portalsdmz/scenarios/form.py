@@ -3,7 +3,7 @@ import datetime
 from whichcraft import which
 import subprocess
 
-#from views import getIP
+#from .views import 
 
 SIZE_CHOICES = (
 	("1G",   '1G              '),
@@ -18,7 +18,7 @@ class ScenarioForm(forms.Form):
 		nome 		= forms.CharField(max_length = 120, initial='Teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
 		data 		= forms.DateTimeField(initial = datetime.datetime.now(), widget=forms.HiddenInput())
 		tamanho 	= forms.ChoiceField(choices=SIZE_CHOICES, widget=forms.Select(attrs={'class': 'col-sm-5'}))
-		ip_remoto	= forms.CharField(max_length = 120, initial = '172.20.5.38', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
+#		ip_remoto	= forms.CharField(max_length = 120, initial = '172.20.5.38', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
 		limite		= forms.IntegerField(initial = 1, min_value=1, max_value=10, widget=forms.NumberInput(attrs={'class': 'col-sm-5'}))
 		destino		= forms.CharField(max_length = 120, initial = 'dados/area-teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
 		origem		= forms.CharField(max_length = 120, initial = 'dados/area-teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
