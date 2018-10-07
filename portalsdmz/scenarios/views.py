@@ -22,7 +22,7 @@ from measureTools.models import (
 	gridftpData, iperfData, scpData, wgetData, axelData, udrData, aria2cData, xrootdData, fdtData
 )
 
-IP
+
 
 def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt):
 
@@ -175,8 +175,8 @@ class newScenarioInit(generic.FormView):
 			print "entrou depois"
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
-			IP = ip_remoto
-			print IP
+
+			print ip_remoto
 
 			return super(newScenarioInit, self).form_valid(form)
 
