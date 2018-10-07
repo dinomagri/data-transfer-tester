@@ -188,6 +188,9 @@ class newScenarioInit(generic.FormView):
 			request.session['ip_remoto'] = ip_remoto
 
 #			return super(newScenarioInit, self).form_valid(form)
+			return {
+        		"IP": ip_remoto
+    		}
 
 class scenarioList(generic.ListView):
 	template_name = 'scenarios/scenario_list.html'
