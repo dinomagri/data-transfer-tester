@@ -23,50 +23,6 @@ class ScenarioForm(forms.Form):
 		destino		= forms.CharField(max_length = 120, initial = 'dados/area-teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
 		origem		= forms.CharField(max_length = 120, initial = 'dados/area-teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
 		fluxo		= forms.IntegerField(initial = 1, min_value=1, max_value=10, widget=forms.NumberInput(attrs={'class': 'col-sm-5'}))
-
-# 		def __init__(self, *args, **kwargs):
-# 					super(ScenarioForm, self).__init__(*args, **kwargs)
-#                 # now we add each question individually
-# 					path_tools = {}
-# 					tools = ['aria2c', 'wget', 'axel', 'globus-url-copy',  'iperf', 'scp', 'udt', 'xrootd','fdt.jar']
-# 					for tool in tools:
-# 						path_tools[tool] = which(tool)
-# 					print path_tools
-#
-# #					for key, value in path_tools.items():
-# #						if value != None:
-# #							if key == 'globus-url-copy':
-# #								self.fields['gridftp'] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-# #							self.fields[key] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-#
-#
-# #					Ip = getIP()
-# #					Ip = request.session['ip_remoto']
-# 					print("Iniciando obtencao de ferramenta remota")
-# 					cmd = 'ssh sdmz@dtn.sciencedmz.usp.br python /tmp/script.py'
-#
-# 				 	path_tools2 = subprocess.check_output(cmd, shell=True)
-# #					path_tools2
-# #					path_tools2 = list()
-# 					print path_tools2
-# #					print path_tools2.split()
-# #					try:
-# 					tools = eval(path_tools2)
-# #					except:
-#
-#
-#
-#
-# 					for key, value in path_tools.items():
-# 						for key2, value2 in tools.items():
-# 							if value != None:
-# 								if value2 != None and key2 == key :
-# 									if key == 'globus-url-copy':
-# 										self.fields['gridftp'] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-# 									else:
-# 										self.fields[key] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
-
-
 		scp 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 		wget		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 		udr 		= forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
