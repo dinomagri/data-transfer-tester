@@ -22,6 +22,7 @@ from measureTools.models import (
 	gridftpData, iperfData, scpData, wgetData, axelData, udrData, aria2cData, xrootdData, fdtData
 )
 
+IP
 
 
 def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt):
@@ -89,7 +90,7 @@ class newScenario(generic.FormView):
 
 
 		template_name = 'scenarios/scenario/newscenario.html'
-		form_class = ScenarioForm
+		form_class = ScenarioForm(IP)
 		success_url = 'results'
 
 		def form_valid(self, form):
@@ -176,7 +177,7 @@ class newScenarioInit(generic.FormView):
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
 
-			print ip_remoto
+			IP = ip_remoto
 
 			return super(newScenarioInit, self).form_valid(form)
 
