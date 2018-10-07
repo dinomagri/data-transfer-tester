@@ -22,15 +22,7 @@ from measureTools.models import (
 	gridftpData, iperfData, scpData, wgetData, axelData, udrData, aria2cData, xrootdData, fdtData
 )
 
-remoteIP = '0'
-
-
-def setIP(ip):
-	remoteIP = ip
-	print remoteIP
-
-def getIP():
-	return remoteIP
+ip_remoto = 0
 
 def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt):
 
@@ -184,13 +176,8 @@ class newScenarioInit(generic.FormView):
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
 			print ip_remoto
-#			setIP(ip_remoto)
-			request.session['ip_remoto'] = ip_remoto
 
-#			return super(newScenarioInit, self).form_valid(form)
-			return {
-        		"IP": ip_remoto
-    		}
+			return super(newScenarioInit, self).form_valid(form)
 
 class scenarioList(generic.ListView):
 	template_name = 'scenarios/scenario_list.html'
