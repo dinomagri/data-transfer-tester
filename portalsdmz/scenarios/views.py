@@ -184,7 +184,8 @@ class newScenarioInit(generic.FormView):
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
 			print ip_remoto
-			setIP(ip_remoto)
+#			setIP(ip_remoto)
+			request.session['ip_remoto'] = ip_remoto
 
 			return super(newScenarioInit, self).form_valid(form)
 

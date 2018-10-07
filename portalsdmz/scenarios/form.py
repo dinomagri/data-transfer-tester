@@ -3,7 +3,7 @@ import datetime
 from whichcraft import which
 import subprocess
 
-from views import getIP
+#from views import getIP
 
 SIZE_CHOICES = (
 	("1G",   '1G              '),
@@ -40,7 +40,8 @@ class ScenarioForm(forms.Form):
 #							self.fields[key] = forms.BooleanField(required=False, initial=False, widget=forms.CheckboxInput(attrs={'class': ''}))
 
 
-					Ip = getIP()
+#					Ip = getIP()
+					Ip = request.session['ip_remoto']
 					print Ip
 					print("Iniciando obtencao de ferramenta remota")
 					cmd = 'ssh sdmz@dtn.sciencedmz.usp.br python /tmp/script.py'
