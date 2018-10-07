@@ -27,6 +27,7 @@ remoteIP = '0'
 
 def setIP(ip):
 	remoteIP = ip
+	print remoteIP
 
 def getIP():
 	return remoteIP
