@@ -22,7 +22,7 @@ from measureTools.models import (
 	gridftpData, iperfData, scpData, wgetData, axelData, udrData, aria2cData, xrootdData, fdtData
 )
 
-IP = "0"
+IP = "adm.sciencedmz.usp.br"
 
 
 def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt):
@@ -117,6 +117,7 @@ class newScenario(generic.FormView):
 			origem		= form.cleaned_data['origem']
 			fluxo		= form.cleaned_data['fluxo']
 
+
 #			Ip = getIP()
 #			print Ip
 			print("Iniciando obtencao de ferramenta remota")
@@ -178,6 +179,7 @@ class newScenarioInit(generic.FormView):
 			ip_remoto	= form.cleaned_data['ip_remoto']
 
 			IP = ip_remoto
+			print 'setou o ip'
 
 			return super(newScenarioInit, self).form_valid(form)
 
