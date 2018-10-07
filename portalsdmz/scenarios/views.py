@@ -91,7 +91,7 @@ class newScenario(generic.FormView):
 
 
 		template_name = 'scenarios/scenario/newscenario.html'
-		form_class = ScenarioForm(IP)
+		form_class = ScenarioForm
 		success_url = 'results'
 
 		def form_valid(self, form):
