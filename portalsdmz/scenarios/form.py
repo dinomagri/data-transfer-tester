@@ -24,6 +24,8 @@ class ScenarioForm(forms.Form):
 		origem		= forms.CharField(max_length = 120, initial = 'dados/area-teste', widget=forms.TextInput(attrs={'class': 'col-sm-5'}))
 		fluxo		= forms.IntegerField(initial = 1, min_value=1, max_value=10, widget=forms.NumberInput(attrs={'class': 'col-sm-5'}))
 
+		print 'antes do form do scp'
+
 		def __init__(self,IP, *args, **kwargs):
 					super(ScenarioForm, self).__init__(*args, **kwargs)
                 # now we add each question individually
