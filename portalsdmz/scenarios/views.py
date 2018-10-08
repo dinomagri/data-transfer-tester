@@ -178,11 +178,16 @@ class newScenarioInit(generic.FormView):
 		form_class = ScenarioForminit
 		success_url = 'scenarios/scenario'
 
-		def get(self, request, *args, **kwargs):
+		# def get(self, request):
+		#
+		# 	print"entrou por causa do get"
+		# 	return HttpResponse()
 
-			print"entrou por causa do get"
-			context = self.get_context_data(**kwargs)
-			return self.render_to_response(context)
+		def my_view(request):
+    		if request.method == 'GET':
+        		print"entrou por causa do get"
+        		return HttpResponse('result')
+
 
 		def form_valid(self, form1):
 			print "entrou depois"
