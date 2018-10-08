@@ -182,7 +182,7 @@ class newScenarioInit(generic.FormView):
 
 			print"entrou por causa do get"
 
-			return self.render_to_response(context)
+			return self.render_to_response()
 
 		def form_valid(self, form1):
 			print "entrou depois"
