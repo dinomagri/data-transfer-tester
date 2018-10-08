@@ -145,7 +145,7 @@ class newScenario(generic.FormView):
 								if key == 'scp':
 									scp 		= form.fields['scp'].widget = forms.HiddenInput()
 								if key == 'udt':
-									udr			= form.fields['udt'].widget = forms.HiddenInput()
+									udt			= form.fields['udt'].widget = forms.HiddenInput()
 								if key == 'fdt':
 									fdt     	= form.fields['fdt'].widget = forms.HiddenInput()
 
