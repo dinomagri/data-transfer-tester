@@ -234,22 +234,17 @@ class newScenarioInit(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
-			form = ContactForm(request.POST) # A form bound to the POST data
-        		if form.is_valid(): # All validation rules pass
-					ip_remoto	= form.cleaned_data['ip_remoto']
-					IP = ip_remoto
-				 	print IP
-			return self.render_to_response(context)
+			return self.render_to_response(context, form_valid(self,form))
 
-		# def form_valid(self, form):
-		# 	print "entrou depois"
-		#
-		# 	ip_remoto	= form.cleaned_data['ip_remoto']
-		#
-		# 	IP = ip_remoto
-		# 	print 'setou o ip'
-		#
-		# 	return super(newScenarioInit, self).form_valid(form)
+		def form_valid(self, form):
+			print "entrou depois"
+
+			ip_remoto	= form.cleaned_data['ip_remoto']
+
+			IP = ip_remoto
+			print 'setou o ip'
+
+			return super(newScenarioInit, self).form_valid(form)
 
 class scenarioList(generic.ListView):
 	template_name = 'scenarios/scenario_list.html'
