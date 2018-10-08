@@ -181,8 +181,8 @@ class newScenarioInit(generic.FormView):
 		def get(self, request, *args, **kwargs):
 
 			print"entrou por causa do get"
-
-			return self.render_to_response()
+			context = self.get_context_data(**kwargs)
+			return self.render_to_response(context)
 
 		def form_valid(self, form1):
 			print "entrou depois"
