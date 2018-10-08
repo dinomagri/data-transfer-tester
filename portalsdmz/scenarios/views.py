@@ -238,7 +238,7 @@ class newScenarioInit(generic.FormView):
         		if form.is_valid(): # All validation rules pass
 					ip_remoto	= form.cleaned_data['ip_remoto']
 					IP = ip_remoto
-				 	print 'setou o ip'
+				 	print IP
 			return self.render_to_response(context)
 
 		# def form_valid(self, form):
