@@ -23,6 +23,8 @@ from measureTools.models import (
 	gridftpData, iperfData, scpData, wgetData, axelData, udrData, aria2cData, xrootdData, fdtData
 )
 
+from django.http import HttpResponse
+
 IP = "adm.sciencedmz.usp.br"
 
 
@@ -178,15 +180,11 @@ class newScenarioInit(generic.FormView):
 		form_class = ScenarioForminit
 		success_url = 'scenarios/scenario'
 
-		# def get(self, request):
-		#
-		# 	print"entrou por causa do get"
-		# 	return HttpResponse()
+		def get(self, request, *args, **kwargs):
 
-		def my_view(request):
-    		if request.method == 'GET':
-        		print"entrou por causa do get"
-        	return HttpResponse('result')
+			print"entrou por causa do get"
+			return HttpResponse('Hello, World!')
+
 
 
 		def form_valid(self, form1):
