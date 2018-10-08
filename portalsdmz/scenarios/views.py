@@ -130,23 +130,23 @@ class newScenario(generic.FormView):
 					if value != None:
 						if value2 != None and key2 == key :
 								if key == 'aria2c':
-									aria2c		= form.fields['aria2c'].widget = form.HiddenInput()
+									aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
 								if key == 'wget':
-									wget		= form.fields['wget'].widget = form.HiddenInput()
+									wget		= form.fields['wget'].widget = forms.HiddenInput()
 								if key == 'axel':
-									axel		= form.fields['axel'].widget = form.HiddenInput()
+									axel		= form.fields['axel'].widget = forms.HiddenInput()
 								if key == 'globus-url-copy':
-									gridftp		= form.fields['gridftp'].widget = form.HiddenInput()
+									gridftp		= form.fields['gridftp'].widget = forms.HiddenInput()
 								if key == 'xrootd':
-									xrootd      = form.fields['xrootd'].widget = form.HiddenInput()
+									xrootd      = form.fields['xrootd'].widget = forms.HiddenInput()
 								if key == 'iperf':
-									iperf 		= form.fields['iperf'].widget = form.HiddenInput()
+									iperf 		= form.fields['iperf'].widget = forms.HiddenInput()
 								if key == 'scp':
-									scp 		= form.fields['scp'].widget = form.HiddenInput()
+									scp 		= form.fields['scp'].widget = forms.HiddenInput()
 								if key == 'udt':
-									udr			= form.fields['udt'].widget = form.HiddenInput()
+									udr			= form.fields['udt'].widget = forms.HiddenInput()
 								if key == 'fdt':
-									fdt     	= form.fields['fdt'].widget = form.HiddenInput()
+									fdt     	= form.fields['fdt'].widget = forms.HiddenInput()
 
 			return self.render_to_response(context)
 
