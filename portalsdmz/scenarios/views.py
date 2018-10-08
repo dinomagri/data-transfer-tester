@@ -107,43 +107,7 @@ class newScenario(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
-			fluxo		= form.cleaned_data['fluxo']
-			print fluxo
-
-
 			return self.render_to_response(context)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		def form_valid(self, form):
