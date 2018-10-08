@@ -183,7 +183,9 @@ class newScenarioInit(generic.FormView):
 		def get(self, request, *args, **kwargs):
 
 			print"entrou por causa do get"
-			return HttpResponse('Hello, World!')
+			context = self.get_context_data(**kwargs)
+        	context['form'] = form
+			return self.render_to_response(context)
 
 
 
