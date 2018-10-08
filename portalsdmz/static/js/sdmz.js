@@ -56,7 +56,7 @@ $(document).ready(function($) {
       $.ajax({ // http call
         type: "POST", // method
         url: "/scenarios", // same path from action
-        //data: $(this).serialize(),
+        data: $(this).serialize(),
         success: function() { // when success response
           window.location.href = "/scenarios/scenario/";
         },
