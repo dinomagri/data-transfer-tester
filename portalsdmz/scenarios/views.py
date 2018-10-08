@@ -129,7 +129,9 @@ class newScenario(generic.FormView):
 				print "entou no for"
 				for key2, value2 in tools1.items():
 					if value == None:
+						print value
 						if value2 == None and key2 == key :
+								print value2 , key ,key2
 								if key == 'aria2c':
 									aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
 								if key == 'wget':
