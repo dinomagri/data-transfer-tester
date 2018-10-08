@@ -23,7 +23,7 @@ from measureTools.models import (
 	gridftpData, iperfData, scpData, wgetData, axelData, udrData, aria2cData, xrootdData, fdtData
 )
 
-global IP = "adm.sciencedmz.usp.br"
+IP = "adm.sciencedmz.usp.br"
 
 
 def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt):
@@ -93,6 +93,8 @@ class newScenario(generic.FormView):
 		template_name = 'scenarios/scenario/newscenario.html'
 		form_class = ScenarioForm
 		success_url = 'results'
+
+		print "antes do inicio"
 
 		def form_valid(self, form):
 			print "entrou depois"
