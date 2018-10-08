@@ -232,10 +232,6 @@ class newScenarioInit(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
-			ip_remoto	= form.cleaned_data['ip_remoto']
-
-			IP = ip_remoto
-			print 'setou o ip'
 			return self.render_to_response(context)
 
 		def form_valid(self, form):
