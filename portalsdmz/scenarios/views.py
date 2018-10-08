@@ -107,7 +107,7 @@ class newScenario(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
-			fluxo		= context.cleaned_data['fluxo']
+			fluxo		= form.cleaned_data['fluxo']
 			print fluxo
 
 
