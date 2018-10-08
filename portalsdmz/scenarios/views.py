@@ -178,7 +178,7 @@ class newScenarioInit(generic.FormView):
 		form_class = ScenarioForminit
 		success_url = 'scenarios/scenario'
 
-		def form_valid(self, form1):
+		def form_valid(self, form1,IP):
 			print "entrou depois"
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
