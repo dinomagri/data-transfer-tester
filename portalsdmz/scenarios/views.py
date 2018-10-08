@@ -98,6 +98,7 @@ class newScenario(generic.FormView):
 
 		def form_valid(self, form):
 			print "entrou depois"
+			print IP
 #			print path_tools
 			"""option_scp  	= form.cleaned_data.get("scp")
 			option_wget  	= form.cleaned_data.get("wget")
