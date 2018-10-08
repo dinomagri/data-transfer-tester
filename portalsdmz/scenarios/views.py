@@ -234,7 +234,7 @@ class newScenarioInit(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
-			return self.render_to_response(context, form_valid(self,form))
+			return self.render_to_response(context)
 
 		def form_valid(self, form):
 			print "entrou depois"
