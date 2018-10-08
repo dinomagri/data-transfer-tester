@@ -117,6 +117,7 @@ class newScenario(generic.FormView):
 			destino		= form.cleaned_data['destino']
 			origem		= form.cleaned_data['origem']
 			fluxo		= form.cleaned_data['fluxo']
+			form.fields['ip_remoto'].widget = forms.HiddenInput()
 
 
 #			Ip = getIP()
