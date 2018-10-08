@@ -100,14 +100,14 @@ class newScenario(generic.FormView):
 
 
 
-		def get(self, request,form, *args, **kwargs):
+		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get 2"
 			print IP
 			form_class = self.get_form_class()
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
-			fluxo		= form.cleaned_data['fluxo']
+			fluxo		= context.cleaned_data['fluxo']
 			print fluxo
 
 
