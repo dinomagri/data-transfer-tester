@@ -3,7 +3,6 @@ import datetime
 from whichcraft import which
 import subprocess
 
-from .views import IP
 
 SIZE_CHOICES = (
 	("1G",   '1G              '),
