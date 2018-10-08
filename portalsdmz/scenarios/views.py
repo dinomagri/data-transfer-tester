@@ -24,6 +24,7 @@ from measureTools.models import (
 )
 
 from django.http import HttpResponse
+from django import forms
 
 IP = "dtn.sciencedmz.usp.br"
 
