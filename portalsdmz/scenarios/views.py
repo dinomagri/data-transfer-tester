@@ -11,7 +11,7 @@ from django.utils import timezone
 
 from chartit import DataPool, Chart
 
-from .form import ScenarioForm
+from .form import ScenarioForm,ScenarioForminit
 from .form1 import ScenarioForminit
 from .models import	(
 	ScenarioData, ScenarioTimeData
@@ -185,10 +185,10 @@ class newScenarioInit(generic.FormView):
 			form_class = self.get_form_class()
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
-			context['form1'] = form
+			context['form'] = form
 			return self.render_to_response(context)
 
-		def form_valid(self, form1):
+		def form_valid(self, form):
 			print "entrou depois"
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
@@ -196,7 +196,7 @@ class newScenarioInit(generic.FormView):
 			IP = ip_remoto
 			print 'setou o ip'
 
-			return super(newScenarioInit, self).form_valid(form1)
+			return super(newScenarioInit, self).form_valid(form)
 
 class scenarioList(generic.ListView):
 	template_name = 'scenarios/scenario_list.html'
