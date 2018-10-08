@@ -110,7 +110,7 @@ class newScenario(generic.FormView):
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
 			print("Iniciando obtencao de ferramenta remota")
-			cmd = 'ssh sdmz@'+ IP +'python /tmp/script.py '
+			cmd = 'ssh sdmz@'+ IP +' python /tmp/script.py '
 
 			path_tools2 = subprocess.check_output(cmd, shell=True)
 			print path_tools2
