@@ -186,7 +186,7 @@ class newScenarioInit(generic.FormView):
 		def my_view(request):
     		if request.method == 'GET':
         		print"entrou por causa do get"
-        		return HttpResponse('result')
+        	return HttpResponse('result')
 
 
 		def form_valid(self, form1):
