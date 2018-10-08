@@ -98,7 +98,7 @@ class newScenario(generic.FormView):
 
 		def form_valid(self, form):
 			print "entrou depois"
-			print IP
+
 #			print path_tools
 			"""option_scp  	= form.cleaned_data.get("scp")
 			option_wget  	= form.cleaned_data.get("wget")
@@ -178,7 +178,11 @@ class newScenarioInit(generic.FormView):
 		form_class = ScenarioForminit
 		success_url = 'scenarios/scenario'
 
-		def form_valid(self, form1,IP):
+		def get(self, request, *args, **kwargs):
+
+			print"entrou por causa do get"
+
+		def form_valid(self, form1):
 			print "entrou depois"
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
