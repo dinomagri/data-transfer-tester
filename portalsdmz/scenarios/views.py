@@ -25,7 +25,9 @@ from measureTools.models import (
 
 from django.http import HttpResponse
 
-IP = "adm.sciencedmz.usp.br"
+IP = "dtn.sciencedmz.usp.br"
+
+iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp=False
 
 
 def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt):
@@ -107,40 +109,8 @@ class newScenario(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
-			return self.render_to_response(context)
-
-
-		def form_valid(self, form):
-			print "entrou depois"
-
-#			print path_tools
-			"""option_scp  	= form.cleaned_data.get("scp")
-			option_wget  	= form.cleaned_data.get("wget")
-			option_udr      = form.cleaned_data.get("udr")
-			option_iperf	= form.cleaned_data.get("iperf")
-			option_axel	= form.cleaned_data.get("axel")
-			option_gridftp	= form.cleaned_data.get("gridftp")
-			option_aria2c	= form.cleaned_data.get("aria2c")
-			fluxo_valid 	= form.cleaned_data.get("fluxo")"""
-
-			iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp= False
-#			scp = True
-
-			nome 		= form.cleaned_data['nome']
-			data 		= form.cleaned_data['data']
-			tamanho 	= form.cleaned_data['tamanho']
-			limite		= form.cleaned_data['limite']
-			ip_remoto	= form.cleaned_data['ip_remoto']
-			destino		= form.cleaned_data['destino']
-			origem		= form.cleaned_data['origem']
-			fluxo		= form.cleaned_data['fluxo']
-
-
-
-#			Ip = getIP()
-#			print Ip
 			print("Iniciando obtencao de ferramenta remota")
-			cmd = 'ssh sdmz@dtn.sciencedmz.usp.br python /tmp/script.py '
+			cmd = 'ssh sdmz@'+ IP +'python /tmp/script.py '
 
 			path_tools2 = subprocess.check_output(cmd, shell=True)
 			print path_tools2
@@ -160,23 +130,94 @@ class newScenario(generic.FormView):
 					if value != None:
 						if value2 != None and key2 == key :
 								if key == 'aria2c':
-									aria2c		= form.cleaned_data['aria2c']
+									aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
 								if key == 'wget':
-									wget		= form.cleaned_data['wget']
+									wget		= form.fields['wget'].widget = forms.HiddenInput()
 								if key == 'axel':
-									axel		= form.cleaned_data['axel']
+									axel		= form.fields['axel'].widget = forms.HiddenInput()
 								if key == 'globus-url-copy':
-									gridftp		= form.cleaned_data['gridftp']
+									gridftp		= form.fields['gridftp'].widget = forms.HiddenInput()
 								if key == 'xrootd':
-									xrootd      = form.cleaned_data['xrootd']
+									xrootd      = form.fields['xrootd'].widget = forms.HiddenInput()
 								if key == 'iperf':
-									iperf 		= form.cleaned_data['iperf']
+									iperf 		= form.fields['iperf'].widget = forms.HiddenInput()
 								if key == 'scp':
-									scp 		= form.cleaned_data['scp']
+									scp 		= form.fields['scp'].widget = forms.HiddenInput()
 								if key == 'udt':
-									udr		= form.cleaned_data['udt']
+									udr			= form.fields['udt'].widget = forms.HiddenInput()
 								if key == 'fdt':
-									fdt      = form.cleaned_data['fdt']
+									fdt     	= form.fields['fdt'].widget = forms.HiddenInput()
+
+			return self.render_to_response(context)
+
+
+		def form_valid(self, form):
+			print "entrou depois"
+
+#			print path_tools
+			"""option_scp  	= form.cleaned_data.get("scp")
+			option_wget  	= form.cleaned_data.get("wget")
+			option_udr      = form.cleaned_data.get("udr")
+			option_iperf	= form.cleaned_data.get("iperf")
+			option_axel	= form.cleaned_data.get("axel")
+			option_gridftp	= form.cleaned_data.get("gridftp")
+			option_aria2c	= form.cleaned_data.get("aria2c")
+			fluxo_valid 	= form.cleaned_data.get("fluxo")"""
+
+			# iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp= False
+#			scp = True
+
+			nome 		= form.cleaned_data['nome']
+			data 		= form.cleaned_data['data']
+			tamanho 	= form.cleaned_data['tamanho']
+			limite		= form.cleaned_data['limite']
+			ip_remoto	= form.cleaned_data['ip_remoto']
+			destino		= form.cleaned_data['destino']
+			origem		= form.cleaned_data['origem']
+			fluxo		= form.cleaned_data['fluxo']
+
+
+
+#			Ip = getIP()
+#			print Ip
+			# print("Iniciando obtencao de ferramenta remota")
+			# cmd = 'ssh sdmz@dtn.sciencedmz.usp.br python /tmp/script.py '
+			#
+			# path_tools2 = subprocess.check_output(cmd, shell=True)
+			# print path_tools2
+			# tools1 = eval(path_tools2)
+			#
+			#
+			# path_tools = {}
+			# tools = ['aria2c', 'wget', 'axel', 'globus-url-copy', 'iperf', 'scp', 'udt','xrootd','fdt.jar']
+			# for tool in tools:
+			# 		path_tools[tool] = which(tool)
+			#
+			# print "passou do basico"
+			# print path_tools
+			# for key,value in path_tools.iteritems():
+			# 	print "entou no for"
+			# 	for key2, value2 in tools1.items():
+			# 		if value != None:
+			# 			if value2 != None and key2 == key :
+			# 					if key == 'aria2c':
+			# 						aria2c		= form.cleaned_data['aria2c']
+			# 					if key == 'wget':
+			# 						wget		= form.cleaned_data['wget']
+			# 					if key == 'axel':
+			# 						axel		= form.cleaned_data['axel']
+			# 					if key == 'globus-url-copy':
+			# 						gridftp		= form.cleaned_data['gridftp']
+			# 					if key == 'xrootd':
+			# 						xrootd      = form.cleaned_data['xrootd']
+			# 					if key == 'iperf':
+			# 						iperf 		= form.cleaned_data['iperf']
+			# 					if key == 'scp':
+			# 						scp 		= form.cleaned_data['scp']
+			# 					if key == 'udt':
+			# 						udr		= form.cleaned_data['udt']
+			# 					if key == 'fdt':
+			# 						fdt      = form.cleaned_data['fdt']
 #					print  scp
 
 			"""if option_scp == 'False' or option_iperf == 'False' or option_wget == 'False' or option_gridftp == 'False' or option_axel == 'False' or option_udr == 'False' or option_aria2c == 'False':
