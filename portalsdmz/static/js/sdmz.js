@@ -55,7 +55,7 @@ $(document).ready(function($) {
       e.preventDefault(); //prevet default action
       $.ajax({ // http call
         type: "POST", // method
-        url: "/scenarios/", // same path from action
+        url: "/scenarios", // same path from action
         //data: $(this).serialize(),
         success: function() { // when success response
           window.location.href = "/scenarios/scenario/";
