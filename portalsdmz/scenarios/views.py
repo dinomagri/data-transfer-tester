@@ -129,7 +129,8 @@ class newScenario(generic.FormView):
 				print "entou no for"
 				for key2, value2 in tools1.items():
 					if value == None:
-						print "key e value" value , key
+						print "key e value"
+						print value , key
 						if value2 == None and key2 == key :
 								print value2 , key ,key2
 								if key == 'aria2c':
