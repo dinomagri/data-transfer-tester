@@ -131,7 +131,7 @@ class newScenario(generic.FormView):
 					if value == None:
 						print "key e value"
 						print value , key
-						if value2 == value and key2 == key and value2 == None :
+						if value2 == None and key2 == key and value == None :
 								print value2 , key ,key2
 								if key == 'aria2c':
 									aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
