@@ -98,6 +98,52 @@ class newScenario(generic.FormView):
 
 		print "antes do inicio"
 
+
+
+		def get(self, request, *args, **kwargs):
+			print"entrou por causa do get 2"
+			print IP
+			form_class = self.get_form_class()
+			form = self.get_form(form_class)
+			context = self.get_context_data(**kwargs)
+			context['form'] = form
+
+
+			return self.render_to_response(context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		def form_valid(self, form):
 			print "entrou depois"
 
@@ -186,6 +232,10 @@ class newScenarioInit(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
+			ip_remoto	= form.cleaned_data['ip_remoto']
+
+			IP = ip_remoto
+			print 'setou o ip'
 			return self.render_to_response(context)
 
 		def form_valid(self, form):
