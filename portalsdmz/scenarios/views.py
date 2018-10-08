@@ -128,10 +128,10 @@ class newScenario(generic.FormView):
 			for key,value in path_tools.iteritems():
 				print "entou no for"
 				for key2, value2 in tools1.items():
-					if value == None:
+					if value != None:
 						print "key e value"
 						print value , key
-						if value2 == None and key2 == key and value == None :
+						if value2 == None and key2 == key:
 								print value2 , key ,key2
 								if key == 'aria2c':
 									aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
