@@ -135,12 +135,13 @@ class newScenario(generic.FormView):
 			print("Iniciando obtencao de ferramentas")
 			cmd = '/home/admin/data-transfer-tester/check_tools.sh '
 
-			path_tools = subprocess.check_output(cmd, shell=True)
-			print path_tools
+			path_toolst = subprocess.check_output(cmd, shell=True)
+			print path_toolst
 			# path = eval(path_tools)
-			print path
+			# print path
 
-			# path1 = path.split(":")
+			path_toolstt = path_toolst.split(":")
+			print path_toolstt
 
 			"""
 			aria2c:/bin/wget
