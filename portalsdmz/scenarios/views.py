@@ -275,6 +275,7 @@ class newScenarioInit(generic.FormView):
 			ip_remoto	= form.cleaned_data['ip_remoto']
 
 			IP = ip_remoto
+			print IP
 			print 'setou o ip'
 
 			return super(newScenarioInit, self).form_valid(form)
