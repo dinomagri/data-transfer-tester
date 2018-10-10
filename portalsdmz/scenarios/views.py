@@ -116,7 +116,7 @@ class newScenario(generic.FormView):
 			# remotescp = subprocess.check_output(cmd, shell=True)
 			# print remotescp
 
-#obtenção de ferramentas na maquina remota
+#obtencao de ferramentas na maquina remota
 			print("Iniciando obtencao de ferramenta remota")
 			cmd = 'ssh sdmz@'+ IP +' python /tmp/script.py '
 			path_tools2 = subprocess.check_output(cmd, shell=True)
@@ -131,7 +131,7 @@ class newScenario(generic.FormView):
 
 			print "passou do basico"
 			print path_tools
-#obtenção de ferramentas da maquina local
+#obtencao de ferramentas da maquina local
 			print("Iniciando obtencao de ferramentas")
 			cmd = '/home/admin/data-transfer-tester/check_tools.sh '
 
@@ -149,7 +149,7 @@ class newScenario(generic.FormView):
 			"""
 
 
-#verificação da ferramentas
+#verificacao da ferramentas
 			for key,value in path_tools.iteritems():
 				print "entou no for"
 				for key2, value2 in tools1.items():
