@@ -133,7 +133,7 @@ class newScenario(generic.FormView):
 			print path_tools
 #obtencao de ferramentas da maquina local
 			print("Iniciando obtencao de ferramentas")
-			cmd = '/home/admin/data-transfer-tester/check_tools.sh '
+			cmd = '/home/admin/teste/data-transfer-tester/check_tools.sh '
 
 			path_toolst = subprocess.check_output(cmd, shell=True)
 			print path_toolst
