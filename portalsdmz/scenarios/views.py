@@ -137,7 +137,7 @@ class newScenario(generic.FormView):
 
 			path_tools = subprocess.check_output(cmd, shell=True)
 			print path_tools
-			path = eval(path_tools)
+			# path = eval(path_tools)
 			print path
 
 			# path1 = path.split(":")
