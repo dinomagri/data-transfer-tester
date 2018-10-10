@@ -110,9 +110,15 @@ class newScenario(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
+#envio do arquivo para maquina remota
+			# print("Iniciando envio de script")
+			# cmd = 'scp /home/admin/data-transfer-tester/check_tools.sh sdmz@' + IP + ':/tmp/'
+			# remotescp = subprocess.check_output(cmd, shell=True)
+			# print remotescp
+
+#obtenção de ferramentas na maquina remota
 			print("Iniciando obtencao de ferramenta remota")
 			cmd = 'ssh sdmz@'+ IP +' python /tmp/script.py '
-
 			path_tools2 = subprocess.check_output(cmd, shell=True)
 			print path_tools2
 			tools1 = eval(path_tools2)
@@ -125,6 +131,25 @@ class newScenario(generic.FormView):
 
 			print "passou do basico"
 			print path_tools
+#obtenção de ferramentas da maquina local
+			print("Iniciando obtencao de ferramentas")
+			cmd = '/home/admin/data-transfer-tester/check_tools.sh '
+
+			path_tools = subprocess.check_output(cmd, shell=True)
+			print path_tools
+			path = eval(path_tools)
+			print path
+
+			# path1 = path.split(":")
+
+			"""
+			aria2c:/bin/wget
+			axel:/bin/globus-url-copy
+			iperf:/bin/scp
+			"""
+
+
+#verificação da ferramentas
 			for key,value in path_tools.iteritems():
 				print "entou no for"
 				for key2, value2 in tools1.items():
