@@ -54,8 +54,8 @@ $(document).ready(function($) {
       //console.log($(this).serialize()); // log for see the form data serialzed which is equal to the one send when submit normally
       e.preventDefault(); //prevet default action
       $.ajax({ // http call
-        type: "GET", // method
-        url: "/scenarios", // same path from action
+        type: "POST", // method
+        url: "/scenarios/", // same path from action
         data: $(this).serialize(),
         success: function() { // when success response
           window.location.href = "/scenarios/scenario/";
