@@ -99,7 +99,7 @@ class newScenario(generic.FormView):
 
 		template_name = 'scenarios/scenario/newscenario.html'
 		form_class = ScenarioForm
-		success_url = 'results'
+		success_url = 'results/' + IP
 
 		print "antes do inicio"
 
