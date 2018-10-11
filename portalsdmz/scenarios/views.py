@@ -146,14 +146,7 @@ class newScenario(generic.FormView):
 
 			path_toolstt = path_toolst.split(":")
 			print path_toolstt
-"""
-			"""
-			aria2c:/bin/wget
-			axel:/bin/globus-url-copy
-			iperf:/bin/scp
-			"""
 
-"""
 #verificacao da ferramentas
 			for key,value in path_tools.iteritems():
 				print "entou no for"
