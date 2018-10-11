@@ -26,6 +26,8 @@ from measureTools.models import (
 from django.http import HttpResponse
 from django import forms
 
+from.getset import getIP,setIp
+
 IP = "dtn.sciencedmz.usp.br"
 
 iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp=False
@@ -115,7 +117,8 @@ class newScenario(generic.FormView):
 			# cmd = 'scp /home/admin/data-transfer-tester/check_tools.sh sdmz@' + IP + ':/tmp/'
 			# remotescp = subprocess.check_output(cmd, shell=True)
 			# print remotescp
-
+			ipp = getIP()
+			print ipp
 #obtencao de ferramentas na maquina remota
 			print("Iniciando obtencao de ferramenta remota")
 			cmd = 'ssh sdmz@'+ IP +' python /tmp/script.py '
@@ -276,6 +279,7 @@ class newScenarioInit(generic.FormView):
 
 			IP = ip_remoto
 			print IP
+			setIP(IP)
 			print 'setou o ip'
 
 			return super(newScenarioInit, self).form_valid(form)
