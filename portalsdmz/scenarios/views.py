@@ -263,10 +263,10 @@ class newScenario(generic.FormView):
 			return super(newScenario, self).form_valid(form)
 
 class newScenarioInit(generic.FormView):
-
+		IPP = 'adm'
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioForminit
-		success_url = 'scenario/adm.sciencedmz.usp.brr2' + IP
+		success_url = 'scenario/z' + IPP
 
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get"
@@ -281,9 +281,9 @@ class newScenarioInit(generic.FormView):
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
 
-			IP = ip_remoto
-			print IP
-			setIP(IP)
+			IPP = ip_remoto
+			print IPP
+			setIP(IPP)
 			print 'setou o ip'
 
 			return super(newScenarioInit, self).form_valid(form)
