@@ -105,7 +105,7 @@ class newScenario(generic.FormView):
 
 		def profile_page(request, remoteip):
 			print remoteip
-
+"""
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get 2"
 			print IP
@@ -146,14 +146,14 @@ class newScenario(generic.FormView):
 
 			path_toolstt = path_toolst.split(":")
 			print path_toolstt
-
+"""
 			"""
 			aria2c:/bin/wget
 			axel:/bin/globus-url-copy
 			iperf:/bin/scp
 			"""
 
-
+"""
 #verificacao da ferramentas
 			for key,value in path_tools.iteritems():
 				print "entou no for"
@@ -182,7 +182,7 @@ class newScenario(generic.FormView):
 
 			return self.render_to_response(context)
 
-
+"""
 		def form_valid(self, form):
 			print "entrou depois"
 
