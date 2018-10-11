@@ -99,7 +99,7 @@ class newScenario(generic.FormView):
 
 		template_name = 'scenarios/scenario/newscenario.html'
 		form_class = ScenarioForm
-		success_url = 'results/' + IP
+		success_url = 'results'
 
 		print "antes do inicio"
 
@@ -266,7 +266,7 @@ class newScenarioInit(generic.FormView):
 
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioForminit
-		success_url = 'scenario'
+		success_url = 'scenario/' + IP
 
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get"
