@@ -103,8 +103,85 @@ class newScenario(generic.FormView):
 
 		print "antes do inicio"
 
-		def profile_page(request, remoteip):
-			print remoteip
+		def get(self, request, *args, **kwargs):
+			print"entrou por causa do get 2"
+			print IP
+
+			tesete = self.remoteip
+			print tesete
+			form_class = self.get_form_class()
+			form = self.get_form(form_class)
+			context = self.get_context_data(**kwargs)
+			context['form'] = form
+#envio do arquivo para maquina remota
+			# print("Iniciando envio de script")
+			# cmd = 'scp /home/admin/data-transfer-tester/check_tools.sh sdmz@' + IP + ':/tmp/'
+			# remotescp = subprocess.check_output(cmd, shell=True)
+			# print remotescp
+			ipp = getIP()
+			print ipp
+#obtencao de ferramentas na maquina remota
+			print("Iniciando obtencao de ferramenta remota")
+			cmd = 'ssh sdmz@'+ IP +' python /tmp/script.py '
+			path_tools2 = subprocess.check_output(cmd, shell=True)
+			print path_tools2
+			tools1 = eval(path_tools2)
+
+
+			path_tools = {}
+			tools = ['aria2c', 'wget', 'axel', 'globus-url-copy', 'iperf', 'scp', 'udt','xrootd','fdt.jar']
+			for tool in tools:
+					path_tools[tool] = which(tool)
+
+			print "passou do basico"
+			print path_tools
+#obtencao de ferramentas da maquina local
+			print("Iniciando obtencao de ferramentas")
+			cmd = '/home/admin/data-transfer-tester/check_tools.sh '
+
+			path_toolst = subprocess.check_output(cmd, shell=True)
+			print path_toolst
+			# path = eval(path_tools)
+			# print path
+
+			path_toolstt = path_toolst.split(":")
+			print path_toolstt
+
+			"""
+			aria2c:/bin/wget
+			axel:/bin/globus-url-copy
+			iperf:/bin/scp
+			"""
+
+
+#verificacao da ferramentas
+			for key,value in path_tools.iteritems():
+				print "entou no for"
+				for key2, value2 in tools1.items():
+#					if value != None:
+						print "key e value"
+						print value , key
+						if value2 == None and key2 == key or key2 == key and value == None:
+								print value2 , key ,key2
+								if key == 'aria2c':
+									aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
+								if key == 'wget':
+									wget		= form.fields['wget'].widget = forms.HiddenInput()
+								if key == 'axel':
+									axel		= form.fields['axel'].widget = forms.HiddenInput()
+								if key == 'globus-url-copy':
+									gridftp		= form.fields['gridftp'].widget = forms.HiddenInput()
+								if key == 'xrootd':
+									xrootd      = form.fields['xrootd'].widget = forms.HiddenInput()
+								if key == 'iperf':
+									iperf 		= form.fields['iperf'].widget = forms.HiddenInput()
+								if key == 'scp':
+									scp 		= form.fields['scp'].widget = forms.HiddenInput()
+								if key == 'fdt.jar':
+									fdt     	= form.fields['fdt'].widget = forms.HiddenInput()
+
+			return self.render_to_response(context)
+
 
 		def form_valid(self, form):
 			print "entrou depois"
