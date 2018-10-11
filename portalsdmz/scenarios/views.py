@@ -122,7 +122,8 @@ class newScenario(generic.FormView):
 			# remotescp = subprocess.check_output(cmd, shell=True)
 			# print remotescp
 			ipp = getIP()
-			print ipp
+			print ("valor do ip golbal ")
+			print IP
 #obtencao de ferramentas na maquina remota
 			print("Iniciando obtencao de ferramenta remota")
 			cmd = 'ssh sdmz@'+ IP +' python /tmp/script.py '
@@ -263,10 +264,10 @@ class newScenario(generic.FormView):
 			return super(newScenario, self).form_valid(form)
 
 class newScenarioInit(generic.FormView):
-		IPP = 'adm'
+		IPP = 'adm.sciencedmz.usp.br'
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioForminit
-		success_url = 'scenario/z' + IPP
+		success_url = 'scenario/' + IPP
 
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get"
@@ -284,6 +285,8 @@ class newScenarioInit(generic.FormView):
 			IPP = ip_remoto
 			print IPP
 			setIP(IPP)
+			global IP
+			IP = ip_remoto
 			print 'setou o ip'
 
 			return super(newScenarioInit, self).form_valid(form)
