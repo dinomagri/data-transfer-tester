@@ -280,8 +280,8 @@ class newScenarioInit(generic.FormView):
 			print "entrou depois"
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
-
-			global IPP = ip_remoto
+			global IPP
+			IPP = ip_remoto
 			print IPP
 			setIP(IPP)
 			print 'setou o ip'
