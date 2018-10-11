@@ -107,9 +107,9 @@ class newScenario(generic.FormView):
 			print"entrou por causa do get 2"
 			print IP
 
-			# self.scenario_id = self.kwargs['pk']
-			# scenario = self.scenario_id
-			# print scenario
+			self.scenario_id = self.kwargs['pk']
+			scenario = self.scenario_id
+			print scenario
 
 
 			form_class = self.get_form_class()
