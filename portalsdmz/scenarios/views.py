@@ -281,12 +281,12 @@ class newScenarioInit(generic.FormView):
 
 			ip_remoto	= form.cleaned_data['ip_remoto']
 
-			IPP = ip_remoto
+			global IPP = ip_remoto
 			print IPP
 			setIP(IPP)
 			print 'setou o ip'
 
-			return super(newScenarioInit,IPP , self).form_valid(form)
+			return super(newScenarioInit, self).form_valid(form)
 
 class scenarioList(generic.ListView):
 	template_name = 'scenarios/scenario_list.html'
