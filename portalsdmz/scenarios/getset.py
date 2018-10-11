@@ -1,7 +1,7 @@
 Ip = "adm.sciencedmz.usp.br"
 
 
-def getIP:
+def getIP():
     return IP
 
 def setIP(ip):
