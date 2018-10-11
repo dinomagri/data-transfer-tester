@@ -106,9 +106,6 @@ class newScenario(generic.FormView):
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get 2"
 			print IP
-
-			tesete = self.remoteip
-			print tesete
 			form_class = self.get_form_class()
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
