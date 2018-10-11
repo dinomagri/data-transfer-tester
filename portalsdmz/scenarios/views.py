@@ -107,9 +107,9 @@ class newScenario(generic.FormView):
 			print"entrou por causa do get 2"
 			print IP
 
-			self.scenario_id = self.kwargs['pk']
-			scenario = self.scenario_id
-			print scenario
+			# self.scenario_id = self.kwargs['pk']
+			# scenario = self.scenario_id
+			# print scenario
 
 
 			form_class = self.get_form_class()
@@ -267,7 +267,7 @@ class newScenarioInit(generic.FormView):
 		IPP = 'adm.sciencedmz.usp.br'
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioForminit
-		success_url = 'scenario/' + IPP
+		success_url = 'scenario/'
 
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get"
