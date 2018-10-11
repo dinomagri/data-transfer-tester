@@ -207,10 +207,13 @@ class newScenario(generic.FormView):
 			data 		= form.cleaned_data['data']
 			tamanho 	= form.cleaned_data['tamanho']
 			limite		= form.cleaned_data['limite']
-			ip_remoto	= form.cleaned_data['ip_remoto']
+			# ip_remoto	= form.cleaned_data['ip_remoto']
 			destino		= form.cleaned_data['destino']
 			origem		= form.cleaned_data['origem']
 			fluxo		= form.cleaned_data['fluxo']
+			ip_remoto = IP
+			print ("ip remoto")
+			print ip_remoto
 
 
 
