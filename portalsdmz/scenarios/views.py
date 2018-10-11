@@ -264,12 +264,13 @@ class newScenarioInit(generic.FormView):
 		form_class = ScenarioForminit
 		success_url = 'scenario'
 
-		def get(self, request, *args, **kwargs):
+		def get(self, request, remoteip, *args, **kwargs):
 			print"entrou por causa do get"
 			form_class = self.get_form_class()
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
+			print remoteip
 			return self.render_to_response(context)
 
 		def form_valid(self, form):
