@@ -106,6 +106,12 @@ class newScenario(generic.FormView):
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get 2"
 			print IP
+
+			# self.scenario_id = self.kwargs['pk']
+			# scenario = self.scenario_id
+			# print scenario
+
+
 			form_class = self.get_form_class()
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
