@@ -267,7 +267,7 @@ class newScenarioInit(generic.FormView):
 		IPP = 'adm.sciencedmz.usp.br'
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioForminit
-		success_url = 'scenario/' + IPP
+		success_url = 'scenario/'
 
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get"
