@@ -266,7 +266,7 @@ class newScenarioInit(generic.FormView):
 
 		template_name = 'scenarios/newscenarioinit.html'
 		form_class = ScenarioForminit
-		success_url = 'scenario/' + IP
+		success_url = 'scenario/adm.sciencedmz.usp.brr2' + IP
 
 		def get(self, request, *args, **kwargs):
 			print"entrou por causa do get"
