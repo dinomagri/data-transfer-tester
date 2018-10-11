@@ -25,7 +25,7 @@ $(document).ready(function($) {
       success: function() { // when success response
         //alert('success');
         $("#load").hide();
-        window.location.href = "/scenarios/results/";
+        window.location.href = "/scenarios/results/adm.sciencedmz.usp.brr";
       },
       error: function(){
         alert('algum erro ocorreu!');
