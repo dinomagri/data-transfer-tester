@@ -99,7 +99,7 @@ class newScenario(generic.FormView):
 
 		template_name = 'scenarios/scenario/newscenario.html'
 		form_class = ScenarioForm
-		success_url = 'results'
+		success_url = '../results'
 
 		print "antes do inicio"
 
@@ -302,7 +302,7 @@ class scenarioList(generic.ListView):
 		return ScenarioData.objects.all
 
 class scenarioResults(generic.ListView):
-	template_name = ''
+	template_name = 'scenarios/scenario_results.html'
 	context_object_name = 'scenario_results'
 
 	def mount_query_results(self):

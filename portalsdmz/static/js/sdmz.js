@@ -25,10 +25,9 @@ $(document).ready(function($) {
       success: function() { // when success response
         //alert('success');
         $("#load").hide();
-        window.location.href = "/";
+        window.location.href = "/scenarios/results/";
       },
-      error: function(erro){
-        console.log(erro)
+      error: function(){
         alert('algum erro ocorreu!');
         window.location.href = "/";
     }
