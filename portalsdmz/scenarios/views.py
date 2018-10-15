@@ -302,7 +302,7 @@ class scenarioList(generic.ListView):
 		return ScenarioData.objects.all
 
 class scenarioResults(generic.ListView):
-	template_name = 'scenarios/scenario_results.html'
+	template_name = ''
 	context_object_name = 'scenario_results'
 
 	def mount_query_results(self):
