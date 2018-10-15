@@ -28,6 +28,7 @@ $(document).ready(function($) {
         window.location.href = "/";
       },
       error: function(){
+        console.log(erro)
         alert('algum erro ocorreu!');
         window.location.href = "/";
     }
