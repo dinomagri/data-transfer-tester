@@ -27,7 +27,7 @@ $(document).ready(function($) {
         $("#load").hide();
         window.location.href = "/";
       },
-      error: function(){
+      error: function(erro){
         console.log(erro)
         alert('algum erro ocorreu!');
         window.location.href = "/";
