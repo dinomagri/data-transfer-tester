@@ -30,7 +30,7 @@ from getset import getIP,setIP
 
 IP = "dtn.sciencedmz.usp.br"
 
-iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp=False
+
 
 
 def runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt):
@@ -168,21 +168,21 @@ class newScenario(generic.FormView):
 						if value2 == None and key2 == key or key2 == key and value == None:
 								# print value2 , key ,key2
 								if key == 'aria2c':
-									global aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
+									form.fields['aria2c'].widget = forms.HiddenInput()
 								if key == 'wget':
-									global wget		= form.fields['wget'].widget = forms.HiddenInput()
+									form.fields['wget'].widget = forms.HiddenInput()
 								if key == 'axel':
-									global axel		= form.fields['axel'].widget = forms.HiddenInput()
+									form.fields['axel'].widget = forms.HiddenInput()
 								if key == 'globus-url-copy':
-									global gridftp		= form.fields['gridftp'].widget = forms.HiddenInput()
+									form.fields['gridftp'].widget = forms.HiddenInput()
 								if key == 'xrootd':
-									global xrootd      = form.fields['xrootd'].widget = forms.HiddenInput()
+									form.fields['xrootd'].widget = forms.HiddenInput()
 								if key == 'iperf':
-									global iperf 		= form.fields['iperf'].widget = forms.HiddenInput()
+									form.fields['iperf'].widget = forms.HiddenInput()
 								if key == 'scp':
-									global scp 		= form.fields['scp'].widget = forms.HiddenInput()
+									form.fields['scp'].widget = forms.HiddenInput()
 								if key == 'fdt.jar':
-									global fdt     	= form.fields['fdt'].widget = forms.HiddenInput()
+									form.fields['fdt'].widget = forms.HiddenInput()
 
 			return self.render_to_response(context)
 
@@ -214,8 +214,16 @@ class newScenario(generic.FormView):
 			ip_remoto = IP
 			# print ("ip remoto")
 			# print ip_remoto
+			iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp=False
 
-
+			aria2c		= form.cleaned_data['aria2c']
+			wget		= form.cleaned_data['wget']
+			axel		= form.cleaned_data['axel']
+			gridftp		= form.cleaned_data['gridftp']
+			xrootd      = form.cleaned_data['xrootd']
+			iperf 		= form.cleaned_data['iperf']
+			scp 		= form.cleaned_data['scp']
+			fdt      = form.cleaned_data['fdt']
 
 #			Ip = getIP()
 #			print Ip
