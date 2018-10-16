@@ -104,8 +104,8 @@ class newScenario(generic.FormView):
 		print "antes do inicio"
 
 		def get(self, request, *args, **kwargs):
-			print"entrou por causa do get 2"
-			print IP
+			# print"entrou por causa do get 2"
+			# print IP
 
 			# self.scenario_id = self.kwargs['pk']
 			# scenario = self.scenario_id
@@ -117,18 +117,18 @@ class newScenario(generic.FormView):
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
 #envio do arquivo para maquina remota
-			# print("Iniciando envio de script")
-			# cmd = 'scp /home/admin/data-transfer-tester/check_tools.sh sdmz@' + IP + ':/tmp/'
-			# remotescp = subprocess.check_output(cmd, shell=True)
+			print("Iniciando envio de script")
+			cmd = 'scp /home/admin/data-transfer-tester/check_tools.sh sdmz@' + IP + ':/tmp/'
+			remotescp = subprocess.check_output(cmd, shell=True)
 			# print remotescp
 			ipp = getIP()
-			print ("valor do ip golbal ")
-			print IP
+			# print ("valor do ip golbal ")
+			# print IP
 #obtencao de ferramentas na maquina remota
 			print("Iniciando obtencao de ferramenta remota")
 			cmd = 'ssh sdmz@'+ IP +' python /tmp/script.py '
 			path_tools2 = subprocess.check_output(cmd, shell=True)
-			print path_tools2
+			# print path_tools2
 			tools1 = eval(path_tools2)
 
 
@@ -137,19 +137,19 @@ class newScenario(generic.FormView):
 			for tool in tools:
 					path_tools[tool] = which(tool)
 
-			print "passou do basico"
-			print path_tools
+			# print "passou do basico"
+			# print path_tools
 #obtencao de ferramentas da maquina local
 			print("Iniciando obtencao de ferramentas")
 			cmd = '/home/admin/data-transfer-tester/check_tools.sh '
 
 			path_toolst = subprocess.check_output(cmd, shell=True)
-			print path_toolst
+			# print path_toolst
 			# path = eval(path_tools)
 			# print path
 
 			path_toolstt = path_toolst.split(":")
-			print path_toolstt
+			# print path_toolstt
 
 			"""
 			aria2c:/bin/wget
@@ -160,35 +160,35 @@ class newScenario(generic.FormView):
 
 #verificacao da ferramentas
 			for key,value in path_tools.iteritems():
-				print "entou no for"
+				# print "entou no for"
 				for key2, value2 in tools1.items():
 #					if value != None:
-						print "key e value"
-						print value , key
+						# print "key e value"
+						# print value , key
 						if value2 == None and key2 == key or key2 == key and value == None:
-								print value2 , key ,key2
+								# print value2 , key ,key2
 								if key == 'aria2c':
-									aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
+									global aria2c		= form.fields['aria2c'].widget = forms.HiddenInput()
 								if key == 'wget':
-									wget		= form.fields['wget'].widget = forms.HiddenInput()
+									global wget		= form.fields['wget'].widget = forms.HiddenInput()
 								if key == 'axel':
-									axel		= form.fields['axel'].widget = forms.HiddenInput()
+									global axel		= form.fields['axel'].widget = forms.HiddenInput()
 								if key == 'globus-url-copy':
-									gridftp		= form.fields['gridftp'].widget = forms.HiddenInput()
+									global gridftp		= form.fields['gridftp'].widget = forms.HiddenInput()
 								if key == 'xrootd':
-									xrootd      = form.fields['xrootd'].widget = forms.HiddenInput()
+									global xrootd      = form.fields['xrootd'].widget = forms.HiddenInput()
 								if key == 'iperf':
-									iperf 		= form.fields['iperf'].widget = forms.HiddenInput()
+									global iperf 		= form.fields['iperf'].widget = forms.HiddenInput()
 								if key == 'scp':
-									scp 		= form.fields['scp'].widget = forms.HiddenInput()
+									global scp 		= form.fields['scp'].widget = forms.HiddenInput()
 								if key == 'fdt.jar':
-									fdt     	= form.fields['fdt'].widget = forms.HiddenInput()
+									global fdt     	= form.fields['fdt'].widget = forms.HiddenInput()
 
 			return self.render_to_response(context)
 
 
 		def form_valid(self, form):
-			print "entrou depois"
+			# print "entrou depois"
 
 #			print path_tools
 			"""option_scp  	= form.cleaned_data.get("scp")
@@ -212,8 +212,8 @@ class newScenario(generic.FormView):
 			origem		= form.cleaned_data['origem']
 			fluxo		= form.cleaned_data['fluxo']
 			ip_remoto = IP
-			print ("ip remoto")
-			print ip_remoto
+			# print ("ip remoto")
+			# print ip_remoto
 
 
 
@@ -262,7 +262,7 @@ class newScenario(generic.FormView):
 			"""if option_scp == 'False' or option_iperf == 'False' or option_wget == 'False' or option_gridftp == 'False' or option_axel == 'False' or option_udr == 'False' or option_aria2c == 'False':
 
 				raise forms.ValidationError("Error. All fields empty")"""
-			print "an tes do return"
+			# print "an tes do return"
 			runScripts(nome, data, tamanho, ip_remoto, limite, destino, origem, fluxo, iperf, scp, wget, gridftp, axel, udr, aria2c, xrootd, fdt)
 			return super(newScenario, self).form_valid(form)
 
@@ -286,11 +286,11 @@ class newScenarioInit(generic.FormView):
 			ip_remoto	= form.cleaned_data['ip_remoto']
 			global IPP
 			IPP = ip_remoto
-			print IPP
+			# print IPP
 			setIP(IPP)
 			global IP
 			IP = ip_remoto
-			print 'setou o ip'
+			# print 'setou o ip'
 
 			return super(newScenarioInit, self).form_valid(form)
 
