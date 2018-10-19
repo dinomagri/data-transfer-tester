@@ -43,17 +43,17 @@ def saveAria2cResult(velocidade, numero_teste, cenario, erro):
 
 def aria2cTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenario):
 	# esta fazendo o download em vez de upload
-	
+
 	tipo = 'aria2c'
 	data     = time.strftime('%d/%m %H:%M:%S')
 	erro 	 = ''
 	work_dir = os.getcwd()
-	
+
 	try:
 		#os.chdir(os.path.abspath(os.sep))
 		createLocalFolder(pasta_des, tipo, tamanho)
 
-		comando = "aria2c " + "-x" + str(fluxo) + " ftp://" + ip_remoto + "/" + tamanho + "_file -d /" + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) 
+		comando = "aria2c " + "-x" + str(fluxo) + " ftp://" + ip_remoto + "/pub/" + tamanho + "_file -d /" + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) 
 		print ">>>>>>>>>>>>>>>>>"
 		print comando
 		resultado_aria2c = executa_aria2c(comando);

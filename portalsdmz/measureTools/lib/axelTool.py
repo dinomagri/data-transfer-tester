@@ -57,7 +57,7 @@ def saveAxelResult(velocidade, numero_teste,cenario, erro):
 
 def axelTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenario):
 	# esta fazendo o download em vez de upload
-	
+
 	tipo 	 = 'axel'
 	usuario  = "sdmz"
 	data     = time.strftime('%d/%m %H:%M:%S')
@@ -69,12 +69,12 @@ def axelTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cena
 	try:
 		#os.chdir(os.path.abspath(os.sep))
 		createLocalFolder(pasta_des, tipo, tamanho)
-		print 'pasta criada'	
+		print 'pasta criada'
 
-		comando = 'axel ftp://' + ip_remoto + '/' + tamanho + '_file -o /' + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -n " + str(fluxo)
+		comando = 'axel ftp://' + ip_remoto + '/pub/' + tamanho + '_file -o /' + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -n " + str(fluxo)
 
 		print comando
-		
+
 		resultado_axel = executa_axel(comando)
 		removeLocalFolder(pasta_des, tipo, tamanho)
 		os.chdir(work_dir)
