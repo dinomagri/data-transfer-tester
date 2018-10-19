@@ -80,12 +80,12 @@ def wgetTool(ip_remoto, tamanho, numero_teste, pasta_destino, cenario):
 	"""host_name = user + "@" + ip_remoto
 	ssh_mkdir = "if [ ! -d " + " /" + pasta_destino + "/" + pasta + " ] ; then mkdir -p " + pasta_destino + "/" + pasta + " ; fi"
 
-	try: 
+	try:
 		ssh = subprocess.Popen(['ssh', host_name, ssh_mkdir])
 		ssh.communicate()
 	except subprocess.CalledProcessError:
 		descricao_erro = subprocess.CalledProcessError
-		
+
 	if not os.path.isdir("/" +pasta_destino + "/" + pasta) :
 		os.makedirs("/" + pasta_destino + "/" + pasta)
 	"""
@@ -94,8 +94,8 @@ def wgetTool(ip_remoto, tamanho, numero_teste, pasta_destino, cenario):
 
 	print "iniciando copia =", numero_teste
 
-	cmd = 'wget' + " ftp://" + ip_remoto + "/" + tamanho + "_file -O" + " /" + pasta_destino + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -m"
-	
+	cmd = 'wget' + " ftp://" + ip_remoto + "/pub/" + tamanho + "_file -O" + " /" + pasta_destino + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -m"
+
 #	cmd = 'wget -O' + " /"+pasta_destino+"/"+pasta+"/"+tamanho+"_file_"+str(numero_teste) + " -m ftp://" + ip_remoto + "/" + tamanho + "_file"
 
 	print cmd
