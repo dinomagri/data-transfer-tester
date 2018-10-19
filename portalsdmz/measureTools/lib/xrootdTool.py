@@ -82,7 +82,7 @@ def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, ce
 
 		createLocalFolder(pasta_des, tipo, tamanho)
 
-		cmd_xrootd = "xrdcp xroot://sdmz@" + ip_remoto + "//" + pasta_des + tamanho + "_file" " /home/admin/" + pasta_ori  
+		cmd_xrootd = "xrdcp xroot://sdmz@" + ip_remoto + "/" + pasta_des + tamanho + "_file" " /home/admin/" + pasta_ori  
 
 		print cmd_xrootd
 
