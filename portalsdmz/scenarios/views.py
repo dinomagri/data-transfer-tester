@@ -181,8 +181,8 @@ class newScenario(generic.FormView):
 									form.fields['iperf'].widget = forms.HiddenInput()
 								if key == 'scp':
 									form.fields['scp'].widget = forms.HiddenInput()
-								if key == 'fdt.jar':
-									form.fields['fdt'].widget = forms.HiddenInput()
+								# if key == 'fdt.jar':
+								# 	form.fields['fdt'].widget = forms.HiddenInput()
 
 			return self.render_to_response(context)
 
@@ -214,8 +214,7 @@ class newScenario(generic.FormView):
 			ip_remoto = IP
 			# print ("ip remoto")
 			# print ip_remoto
-			iperf=wget=gridftp=axel=udr=aria2c=xrootd=scp=False
-			fdt=True
+			iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp=False
 
 			aria2c		= form.cleaned_data['aria2c']
 			wget		= form.cleaned_data['wget']
