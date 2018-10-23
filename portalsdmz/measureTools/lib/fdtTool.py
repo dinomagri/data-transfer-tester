@@ -49,7 +49,6 @@ def filterFdT(resultado_fdt,tamanho):
         print y
         if tamanho == "1G":
             vel = 1024 / int(y)
-				velf = vel
         elif tamanho == "10G":
             vel = 10024 / int(y)
         elif tamanho == "100G":
