@@ -77,7 +77,7 @@ def convertToMb(velocidade):
 def fdtTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenario):
 	pasta_temp = 'area-teste'
 	tipo     = "fdt_ftp"
-	usuario  = "admin"
+	usuario  = "sdmz"
 	data     = time.strftime('%d/%m %H:%M:%S')
 	porta    = "2811"
 	pasta 	 = tamanho + "/" + str(fluxo)
