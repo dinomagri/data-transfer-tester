@@ -214,7 +214,8 @@ class newScenario(generic.FormView):
 			ip_remoto = IP
 			# print ("ip remoto")
 			# print ip_remoto
-			iperf=wget=gridftp=axel=udr=aria2c=xrootd=fdt=scp=False
+			iperf=wget=gridftp=axel=udr=aria2c=xrootd=scp=False
+			fdt=True
 
 			aria2c		= form.cleaned_data['aria2c']
 			wget		= form.cleaned_data['wget']
