@@ -54,8 +54,8 @@ def filterFdT(resultado_fdt,tamanho):
         elif tamanho == "100G":
             vel = 100024 / int(y)
 
-        print velf
-	return  velf * 8
+        print vel
+	return  vel * 8
 
 def saveFdTResult(velocidade, cenario, erro, numero_teste):
  	s = fdtData(velocidade=velocidade, scenario = cenario, descricao_erro = erro, num_teste = numero_teste)
