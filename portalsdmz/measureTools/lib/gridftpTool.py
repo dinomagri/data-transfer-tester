@@ -7,7 +7,7 @@ def createRemoteFolder(pasta_des, pasta, usuario, ip_remoto):
 	print "\nCriando pasta remota para envio de arquivos ...\n"
 	cmd = "if [ ! -d " + "/" + pasta_des + "/" + pasta + " ] ; then mkdir -p /" + pasta_des + "/" + pasta + " ; fi"
 	print cmd
-	subprocess.check_call(['ssh',usuario + "@" + ip_remoto,cmd])	
+	subprocess.check_call(['ssh',usuario + "@" + ip_remoto,cmd])
 
 def removeRemoteFolder(pasta_des, tamanho, usuario, ip_remoto):
 	print "\nRemovendo a pasta remota\n"
@@ -43,7 +43,7 @@ def saveGridftpResult(velocidade, cenario, erro, numero_teste):
 
 def convertToMb(velocidade):
 	numero = float(re.search('[\d.]*',velocidade).group(0))
-	
+
 	if velocidade[-6] == "G":
 		numero = numero*1024
 	elif velocidade[-6] == "k":
@@ -55,7 +55,7 @@ def convertToMb(velocidade):
 	return numero
 
 def gridftpTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenario):
-	pasta_temp = 'area-teste'	
+	pasta_temp = 'area-teste'
 	tipo     = "gridftp_ftp"
 	usuario  = "sdmz"
 	data     = time.strftime('%d/%m %H:%M:%S')
@@ -67,7 +67,7 @@ def gridftpTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, c
 		createLocalFolder(pasta_des, tipo, tamanho)
 		cmd_gridftp = "time -p globus-url-copy -vb -p " + str(fluxo) + " ftp://" + ip_remoto + ":" + str(porta)  + "/" + pasta_ori  + "/" + tamanho + "_file file:///" \
 			+ pasta_des + "/" + tipo + "/" + tamanho + "_file_" + str(numero_teste)
-		
+
 		print cmd_gridftp
 
 		retorno_gridftp = executeGridftp(usuario, ip_remoto, cmd_gridftp)
