@@ -85,7 +85,7 @@ def fdtTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenar
 	hostname 		= user + '@' + ip_remoto
 
 	try:
-		createLocalFolder(pasta_des, tipo, tamanho)
+		# createLocalFolder(pasta_des, tipo, tamanho)
 		#cmd_xrootd = "xrdcp -d 3 ftp/test6 root://192.168.122.187//root/FTP/ xrdcp /root/Ftp/test9 test9 -d1"
 		iniciarFDTRemoto(hostname)
 		# subprocess.call(['sleep', '10'])
