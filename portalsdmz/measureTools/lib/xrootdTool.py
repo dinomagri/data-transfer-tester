@@ -16,7 +16,7 @@ def finalizarXrootDTRemoto(hostname):
 
 def removeLocalFile(pasta_des,tamanho):
 	print "\nRemovendo arquivos e pasta local criadas para o recebimento ...\n"
-	cmd = "rm" + "/home/admin/" + pasta_des + "/" + tamanho + "_file"
+	cmd = "rm" + "/home/admin" + pasta_des + "/" + tamanho + "_file"
 	subprocess.check_call(cmd, shell=True)
 
 def createRemoteFolder(pasta_des, pasta, usuario, ip_remoto):
