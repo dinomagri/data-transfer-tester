@@ -86,7 +86,7 @@ def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, ce
 	try:
 
 
-		iniciarXrootDRemoto(ip_remoto, pasta_des)
+		iniciarXrootDRemoto(ip_remoto, pasta_ori)
 		finalizarXrootDTRemoto(ip_remoto)
 		removeLocalFile(pasta_des,tamanho)
 		# createLocalFolder(pasta_des, tipo, tamanho)
