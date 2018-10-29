@@ -86,12 +86,12 @@ def fdtTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenar
 	try:
 		createLocalFolder(pasta_des, tipo, tamanho)
 		#cmd_xrootd = "xrdcp -d 3 ftp/test6 root://192.168.122.187//root/FTP/ xrdcp /root/Ftp/test9 test9 -d1"
-		#iniciarFDTRemoto(ip_remoto)
-		subprocess.call(['sleep', '10'])
+		iniciarFDTRemoto(ip_remoto)
+		# subprocess.call(['sleep', '10'])
 		#cmd_xrootd = "xrdcp -d 3 "+ pasta_ori  + "/" + tamanho +"  root://" + ip_remoto + " xrdcp   /root/"+ pasta_des + "/" + tipo + "/" + tamanho + "_file_" + str(numero_teste) + " -d1 "
 		#cmd_xrootd = "time -p globus-url-copy -vb -p " + str(fluxo) + " ftp://" + ip_remoto + ":" + str(porta)  + "/" + pasta_ori  + "/" + tamanho + "_file file:///" \
 		#	+ pasta_des + "/" + tipo + "/" + tamanho + "_file_" + str(numero_teste)
-		cmd_fdt = "java -jar /home/admin/fdt.jar -c "+ ip_remoto  +" -d /"+ pasta_des +" /home/admin"+ pasta_ori + tamanho +"_file"
+		cmd_fdt = "java -jar /home/admin/fdt.jar -P "+ fluxo +"  -c "+ ip_remoto  +" -d /"+ pasta_des +" /home/admin"+ pasta_ori + tamanho +"_file" 
 
 		print cmd_fdt
 
