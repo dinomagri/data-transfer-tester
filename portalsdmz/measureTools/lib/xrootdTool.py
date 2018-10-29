@@ -85,8 +85,8 @@ def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, ce
 
 	try:
 		removeLocalFile(pasta_des,tamanho)
-		finalizarXrootDTRemoto(hostname)
-		iniciarXrootDRemoto(hostname, pasta_des)
+		finalizarXrootDTRemoto(ip_remoto)
+		iniciarXrootDRemoto(ip_remoto, pasta_des)
 		createLocalFolder(pasta_des, tipo, tamanho)
 
 		cmd_xrootd = "xrdcp xroot://sdmz@" + ip_remoto + "//" + pasta_ori + "/" + tamanho + "_file" " /home/admin/" + pasta_des
