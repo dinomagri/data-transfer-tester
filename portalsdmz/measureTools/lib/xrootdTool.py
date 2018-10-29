@@ -5,7 +5,7 @@ from measureTools.models import xrootdData
 
 def iniciarXrootDRemoto(hostname, pasta_des):
 	print "\nIniciando xrootd server remoto ...\n"
-	subprocess.Popen(['ssh', hostname, 'xrootd' + pasta_des])
+	subprocess.Popen(['ssh', hostname, 'xrootd ' + pasta_des + "-d"])
 	subprocess.call(['sleep', '2'])
 	print"\n\n"
 
@@ -77,17 +77,18 @@ def convertToMb(velocidade):
 def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenario):
 	pasta_temp = 'area-teste'
 	tipo     = "gridftp_ftp"
-	usuario  = "sdmz"
+	user  = "sdmz"
 	data     = time.strftime('%d/%m %H:%M:%S')
 	porta    = "2811"
 	pasta 	 = tamanho + "/" + str(fluxo)
 	error_description = ''
+	hostname 		= user + '@' + ip_remoto
 
 	try:
 
 
-		iniciarXrootDRemoto(ip_remoto, pasta_ori)
-		finalizarXrootDTRemoto(ip_remoto)
+		iniciarXrootDRemoto(hostname, pasta_ori)
+		finalizarXrootDTRemoto(hostname)
 		removeLocalFile(pasta_des,tamanho)
 		# createLocalFolder(pasta_des, tipo, tamanho)
 
