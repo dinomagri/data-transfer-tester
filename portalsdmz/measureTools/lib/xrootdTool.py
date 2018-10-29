@@ -5,14 +5,19 @@ from measureTools.models import xrootdData
 
 def iniciarXrootDRemoto(hostname, pasta_des):
 	print "\nIniciando xrootd server remoto ...\n"
-	subprocess.Popen(['ssh', hostname, 'xrootd', pasta_des])
+	subprocess.Popen(['ssh', hostname, 'xrootd' + pasta_des])
 	subprocess.call(['sleep', '2'])
 	print"\n\n"
 
 def finalizarXrootDTRemoto(hostname):
 	print"Finalizando qualquer xrootd iniciado ..."
-	subprocess.call(['ssh', hostname, 'killall', 'xrootd'])
+	subprocess.call(['ssh', hostname, 'killall xrootd'])
 	subprocess.call(['sleep', '2'])
+
+def removeLocalFile(pasta_des,tamanho):
+	print "\nRemovendo arquivos e pasta local criadas para o recebimento ...\n"
+	cmd = "rm" + "/home/admin/" + pasta_des + "/" + tamanho + "_file"
+	subprocess.check_call(cmd, shell=True)
 
 def createRemoteFolder(pasta_des, pasta, usuario, ip_remoto):
 	print "\nCriando pasta remota para envio de arquivos ...\n"
@@ -67,7 +72,7 @@ def convertToMb(velocidade):
 	if velocidade[-5] == "B":
 		numero = numero*8
 
-	return numero
+	return numero * 8
 
 def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenario):
 	pasta_temp = 'area-teste'
@@ -79,10 +84,12 @@ def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, ce
 	error_description = ''
 
 	try:
-
+		removeLocalFile(pasta_des,tamanho)
+		finalizarXrootDTRemoto(hostname)
+		iniciarXrootDRemoto(hostname, pasta_des)
 		createLocalFolder(pasta_des, tipo, tamanho)
 
-		cmd_xrootd = "xrdcp xroot://sdmz@" + ip_remoto + "//" + pasta_des + tamanho + "_file" " /home/admin" + pasta_ori
+		cmd_xrootd = "xrdcp xroot://sdmz@" + ip_remoto + "//" + pasta_ori + "/" + tamanho + "_file" " /home/admin/" + pasta_des
 
 		print cmd_xrootd
 
