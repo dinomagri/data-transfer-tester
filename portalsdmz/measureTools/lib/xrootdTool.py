@@ -11,7 +11,7 @@ def iniciarXrootDRemoto(hostname, pasta_des):
 
 def finalizarXrootDTRemoto(hostname):
 	print"Finalizando qualquer xrootd iniciado ..."
-	subprocess.call(['ssh', hostname, 'killall xrootd'])
+	subprocess.call(['ssh', hostname, 'kill xrootd'])
 	subprocess.call(['sleep', '2'])
 
 def removeLocalFile(pasta_des,tamanho):
@@ -82,7 +82,7 @@ def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, ce
 	porta    = "2811"
 	pasta 	 = tamanho + "/" + str(fluxo)
 	error_description = ''
-	hostname 		= user + '@' + ip_remoto
+	hostname 		= "sdmz@" + ip_remoto
 
 	try:
 
