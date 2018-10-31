@@ -11,12 +11,12 @@ def iniciarXrootDRemoto(hostname, pasta_des):
 
 def finalizarXrootDTRemoto(hostname):
 	print"Finalizando qualquer xrootd iniciado ..."
-	subprocess.call(['ssh', hostname, 'kill xrootd'])
+	subprocess.call(['ssh', hostname, 'pkill xrootd'])
 	subprocess.call(['sleep', '2'])
 
 def removeLocalFile(pasta_des,tamanho):
 	print "\nRemovendo arquivos e pasta local criadas para o recebimento ...\n"
-	cmd = "rm " + "/home/admin" + pasta_des + tamanho + "_file"
+	cmd = "rm /"+ pasta_des +"/" + tamanho + "_file"
 	subprocess.check_call(cmd, shell=True)
 
 def createRemoteFolder(pasta_des, pasta, usuario, ip_remoto):
@@ -77,7 +77,7 @@ def convertToMb(velocidade):
 def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenario):
 	pasta_temp = 'area-teste'
 	tipo     = "gridftp_ftp"
-	user  = "sdmz"
+	usuario  = "sdmz"
 	data     = time.strftime('%d/%m %H:%M:%S')
 	porta    = "2811"
 	pasta 	 = tamanho + "/" + str(fluxo)
@@ -87,19 +87,20 @@ def xrootdTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, ce
 	try:
 
 
-		iniciarXrootDRemoto(hostname, pasta_ori)
-		finalizarXrootDTRemoto(hostname)
+		# iniciarXrootDRemoto(hostname, pasta_ori)
+
 		removeLocalFile(pasta_des,tamanho)
 		# createLocalFolder(pasta_des, tipo, tamanho)
 
-		cmd_xrootd = "xrdcp xroot://sdmz@" + ip_remoto + "//" + pasta_ori + "/" + tamanho + "_file" " /home/admin/" + pasta_des
+		cmd_xrootd = "xrdcp xroot://sdmz@" + ip_remoto + "//" + pasta_ori + "/" + tamanho + "_file /" + pasta_des
 
 		print cmd_xrootd
 
 		retorno_xrootd = executeXrootD(usuario, ip_remoto, cmd_xrootd)
+		# finalizarXrootDTRemoto(hostname)
 		resultado_xrootd = filterXrootD(retorno_xrootd)
 		#print resultado_xrootd
-		removeLocalFolder(pasta_des, tipo, tamanho)
+		# removeLocalFolder(pasta_des, tipo, tamanho)
 		saveXrootDResult(resultado_xrootd, cenario, error_description, numero_teste)
 
 	except Exception as e:
