@@ -72,6 +72,7 @@ def gridftpTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, c
 		print cmd_gridftp
 
 		retorno_gridftp = executeGridftp(usuario, ip_remoto, cmd_gridftp)
+		print retorno_gridftp
 		resultado_gridftp = filterGridftp(retorno_gridftp)
 		removeLocalFolder(pasta_des, tipo, tamanho)
 		saveGridftpResult(resultado_gridftp, cenario, error_description, numero_teste)
