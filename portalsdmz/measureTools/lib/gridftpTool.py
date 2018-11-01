@@ -27,7 +27,6 @@ def removeLocalFolder(pasta_des, tipo, tamanho):
 def executeGridftp(usuario,ip_remoto,cmd):
 	print "\nExecutando o gridftp\n"
 	retorno = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
-	print retorno
 	return retorno
 
 def filterGridftp(resultado_gridftp):
@@ -66,9 +65,9 @@ def gridftpTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, c
 
 	try:
 		createLocalFolder(pasta_des, tipo, tamanho)
-		cmd_gridftp = "time -p globus-url-copy -vb -p " + str(fluxo) + " ftp://" + ip_remoto + ":" + str(porta)  + "/" + pasta_ori  + "/" + tamanho + "_file file:///" \
-			+ pasta_des + "/" + tipo + "/" + tamanho + "_file_" + str(numero_teste)
-
+		# cmd_gridftp = "time -p globus-url-copy -vb -p " + str(fluxo) + " ftp://" + ip_remoto + ":" + str(porta)  + "/" + pasta_ori  + "/" + tamanho + "_file file:///" \
+		# 	+ pasta_des + "/" + tipo + "/" + tamanho + "_file_" + str(numero_teste)
+		cmd_gridftp = "time -p globus-url-copy -vb -p 1 ftp://dtn.sciencedmz.usp.br:2811/dados/area-teste/1G_file file:///dados/area-teste/gridftp_ftp/1G_file_1"	
 		print cmd_gridftp
 
 		retorno_gridftp = executeGridftp(usuario, ip_remoto, cmd_gridftp)
