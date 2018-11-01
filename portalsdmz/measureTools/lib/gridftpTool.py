@@ -26,8 +26,8 @@ def removeLocalFolder(pasta_des, tipo, tamanho):
 
 def executeGridftp(usuario,ip_remoto,cmd):
 	print "\nExecutando o gridftp\n"
-	# retorno = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
-	return retorno = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+	retorno = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+	return retorno 
 
 def filterGridftp(resultado_gridftp):
 	regex_velocidade = "[\d.]* [\w]*\/sec avg"
