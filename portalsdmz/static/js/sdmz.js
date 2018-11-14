@@ -62,7 +62,8 @@ $(document).ready(function($) {
         },
         error: function(erro){
           console.log(erro)
-          alert('algum erro ocorreu!, mas foi o botao certo');
+          alert('Erro em identificar as ferramentas no HOST Remoto! Retornando para a página principal.');
+	  //Talvez seja interessante realizar o log desse erro aqui! Para facilitar a identificação posterior!
           window.location.href = "/";
 
       }

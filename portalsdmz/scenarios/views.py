@@ -1,6 +1,6 @@
 from django.views import generic
 from whichcraft import which
-
+import os
 import subprocess
 
 import datetime
@@ -116,9 +116,11 @@ class newScenario(generic.FormView):
 			form = self.get_form(form_class)
 			context = self.get_context_data(**kwargs)
 			context['form'] = form
+			caminho = os.getcwd()
+			print(caminho)
 #envio do arquivo para maquina remota
 			print("Iniciando envio de script")
-			cmd = 'scp /home/admin/data-transfer-tester/check_tools.sh sdmz@' + IP + ':/tmp/'
+			cmd = 'scp /home/admin/data-transfer-tester/script.py sdmz@' + IP + ':/tmp/'
 			remotescp = subprocess.check_output(cmd, shell=True)
 			# print remotescp
 			ipp = getIP()
