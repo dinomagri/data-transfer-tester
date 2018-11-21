@@ -3,11 +3,16 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading"><h3>Novo cenário de testes</h3></div>
+			<div class="alert alert-success" role="alert">
+				<h4 class="alert-heading">Importante!</h4>
+				<p>Os tamanhos dos arquivos são pré-definido em 1GB, 10GB e 100GB.</p>
+				<p>Limite é a quantidade de vezes que deseja repetir os testes.</p>
+			</div>
 			<div class="panel-body">
 				<div id = "load">
 
 					<img src = "/static/imgg/ajax-loader.gif">
-					 <br>Realizando os teste por favor espere</br>
+					 <br>Realizando os testes. Pode demorar minutos ou até horas. Aguarde!</br>
 				</div>
 					<form class="form-horizontal" action='' method = 'POST' id = "loadform">
 						{% csrf_token %}
@@ -16,6 +21,7 @@
 								{{ form.as_table }}
 								</tbody>
 								</table>
+
 								<table class="table table-submit">
 									<tbody>
 										<tr>

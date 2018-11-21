@@ -53,7 +53,8 @@ def aria2cTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, ce
 		#os.chdir(os.path.abspath(os.sep))
 		createLocalFolder(pasta_des, tipo, tamanho)
 
-		comando = "aria2c " + "-x" + str(fluxo) + " ftp://" + ip_remoto + "/pub/" + tamanho + "_file -d /" + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) 
+		comando = "aria2c " + "-x" + str(fluxo) + " ftp://" + ip_remoto + "/" + tamanho + "_file -d /" + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) 
+		#comando = "aria2c " + "-x" + str(fluxo) + " ftp://" + ip_remoto + "/pub/" + tamanho + "_file -d /" + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) 
 		print ">>>>>>>>>>>>>>>>>"
 		print comando
 		resultado_aria2c = executa_aria2c(comando);

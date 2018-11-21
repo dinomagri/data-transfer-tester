@@ -130,7 +130,7 @@ class newScenario(generic.FormView):
 			print("Iniciando obtencao de ferramenta remota")
 			cmd = 'ssh sdmz@'+ IP +' python /tmp/script.py '
 			path_tools2 = subprocess.check_output(cmd, shell=True)
-			# print path_tools2
+			print("----->", path_tools2)
 			tools1 = eval(path_tools2)
 
 

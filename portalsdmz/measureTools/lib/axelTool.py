@@ -71,8 +71,9 @@ def axelTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cena
 		createLocalFolder(pasta_des, tipo, tamanho)
 		print 'pasta criada'
 
-		comando = 'axel ftp://' + ip_remoto + '/pub/' + tamanho + '_file -o /' + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -n " + str(fluxo)
 
+		comando = 'axel ftp://' + ip_remoto + '/' + tamanho + '_file -o /' + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -n " + str(fluxo)
+		#comando = 'axel ftp://' + ip_remoto + '/pub/' + tamanho + '_file -o /' + pasta_des + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -n " + str(fluxo)
 		print comando
 
 		resultado_axel = executa_axel(comando)

@@ -98,7 +98,9 @@ def fdtTool(ip_remoto, tamanho, numero_teste, pasta_ori, pasta_des, fluxo, cenar
 		print cmd_fdt
 
 		retorno_fdt = executeFdT(usuario, ip_remoto, cmd_fdt)
+		print("------------->", retorno_fdt)
 		resultado_fdt = filterFdT(retorno_fdt,tamanho)
+		print("------------>", resultado_fdt)
 		removeLocalFolder(pasta_des, tipo, tamanho)
 		saveFdTResult(resultado_fdt, cenario, error_description, numero_teste)
 

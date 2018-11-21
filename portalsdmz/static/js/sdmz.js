@@ -28,7 +28,7 @@ $(document).ready(function($) {
         window.location.href = "/scenarios/results/";
       },
       error: function(){
-        alert('algum erro ocorreu!');
+        alert('Ocorreu um erro! Retornando para a página principal!');
         window.location.href = "/";
     }
     });

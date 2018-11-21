@@ -94,8 +94,9 @@ def wgetTool(ip_remoto, tamanho, numero_teste, pasta_destino, cenario):
 
 	print "iniciando copia =", numero_teste
 
-	cmd = 'wget' + " ftp://" + ip_remoto + "/pub/" + tamanho + "_file -O" + " /" + pasta_destino + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -m"
 
+	cmd = 'wget' + " ftp://" + ip_remoto + "/" + tamanho + "_file -O" + " /" + pasta_destino + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -m"
+	#cmd = 'wget' + " ftp://" + ip_remoto + "/pub/" + tamanho + "_file -O" + " /" + pasta_destino + "/" + tipo + "/" + tamanho + "/" + tamanho + "_file_" + str(numero_teste) + " -m"
 #	cmd = 'wget -O' + " /"+pasta_destino+"/"+pasta+"/"+tamanho+"_file_"+str(numero_teste) + " -m ftp://" + ip_remoto + "/" + tamanho + "_file"
 
 	print cmd
