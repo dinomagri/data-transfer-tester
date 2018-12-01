@@ -36,26 +36,19 @@ def executeFdT(usuario,ip_remoto,cmd):
 	return retorno
 
 def filterFdT(resultado_fdt,tamanho):
-	regex_velocidade = "\d+s"
+	regex_velocidade = "\d+.\d+ Mb[/]s 100"
 	lista_velocidade = re.findall(regex_velocidade,resultado_fdt)
         print lista_velocidade
     #regex = "\d+"
 	#lista = re.findall(regex,lista_velocidade)
 	velocidade = lista_velocidade[len(lista_velocidade) - 1]
         print velocidade
-        x = velocidade.split("s")
+        x = velocidade.split()
 
         y = x[0]
         print y
-        if tamanho == "1G":
-            vel = 1024 / int(y)
-        elif tamanho == "10G":
-            vel = 10024 / int(y)
-        elif tamanho == "100G":
-            vel = 100024 / int(y)
 
-        print vel
-	return  vel * 8
+	return  y
 
 def saveFdTResult(velocidade, cenario, erro, numero_teste):
  	s = fdtData(velocidade=velocidade, scenario = cenario, descricao_erro = erro, num_teste = numero_teste)
