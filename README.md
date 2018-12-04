@@ -53,14 +53,14 @@ O DTT foi testado em ambiente CentOS 7 com as respectivas versões das ferrament
 
 * scp - 
 * scp hpn - 
-* gridFTP - 
+* gridFTP - https://wiki.rnp.br/pages/viewpage.action?pageId=93327982
 * iperf3 - 
-* udr e rsync - 
-* axel -
-* aria2c -
+* udr e rsync - https://wiki.rnp.br/pages/viewpage.action?pageId=88111586
+* axel - https://wiki.rnp.br/pages/viewpage.action?pageId=89125404
+* aria2c - https://wiki.rnp.br/pages/viewpage.action?pageId=89125400
 * wget -
-* xrootd - 
-* fdt -
+* xrootd - https://wiki.rnp.br/display/sciencedmz/XrootD
+* fdt - https://wiki.rnp.br/display/sciencedmz/FDT
 
 > Com um pouco de esforço, acredito que seja possível rodar o DTT em outras distribuições Linux.
 
