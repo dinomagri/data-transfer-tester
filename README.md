@@ -64,6 +64,8 @@ O DTT foi testado em ambiente CentOS 7 com as respectivas versões das ferrament
 
 > Com um pouco de esforço, acredito que seja possível rodar o DTT em outras distribuições Linux.
 
+Para a instalação em ambiente centos6: https://github.com/larc-usp/data-transfer-tester/blob/master/README.md#download-compila%C3%A7%C3%A3o-e-instala%C3%A7%C3%A3o
+
 ### Instalação das depêndencias necessárias
 
 Para instalar corretamente o software, será necessário instalar os seguintes softwares no Centos 7
