@@ -4,15 +4,15 @@ O programa [Science DMZ da RNP](https://wiki.rnp.br/display/sciencedmz/Science+D
 
 O **Data Transfer Tester** (DTT) foi desenvolvido para facilitar os testes de validação da máquina de transferência de dados ([DTN](https://wiki.rnp.br/display/sciencedmz/DTN)). As ferramentas disponíveis são:
 
-* scp
-* gridFTP
+* scp - https://wiki.rnp.br/pages/viewpage.action?pageId=97244719
+* gridFTP - https://wiki.rnp.br/pages/viewpage.action?pageId=93327982
 * iperf3
-* udr
-* axel
-* aria2c
+* udr - https://wiki.rnp.br/pages/viewpage.action?pageId=88111586
+* axel - https://wiki.rnp.br/pages/viewpage.action?pageId=89125404
+* aria2c - https://wiki.rnp.br/pages/viewpage.action?pageId=89125400
 * wget
-* XrootD
-* FDT
+* XrootD - https://wiki.rnp.br/display/sciencedmz/XrootD
+* FDT - https://wiki.rnp.br/display/sciencedmz/FDT
 
 Todas as ferramentas realizam o **Download dos dados**. Ou seja, onde o DTT estiver rodando, os dados serão baixados para essa máquina.
 
@@ -53,14 +53,14 @@ O DTT foi testado em ambiente CentOS 7 com as respectivas versões das ferrament
 
 * scp - 
 * scp hpn - 
-* gridFTP - https://wiki.rnp.br/pages/viewpage.action?pageId=93327982
+* gridFTP - 
 * iperf3 - 
-* udr e rsync - https://wiki.rnp.br/pages/viewpage.action?pageId=88111586
-* axel - https://wiki.rnp.br/pages/viewpage.action?pageId=89125404
-* aria2c - https://wiki.rnp.br/pages/viewpage.action?pageId=89125400
+* udr e rsync - 
+* axel - 
+* aria2c - 
 * wget -
-* xrootd - https://wiki.rnp.br/display/sciencedmz/XrootD
-* fdt - https://wiki.rnp.br/display/sciencedmz/FDT
+* xrootd - 
+* fdt - 
 
 > Com um pouco de esforço, acredito que seja possível rodar o DTT em outras distribuições Linux.
 
